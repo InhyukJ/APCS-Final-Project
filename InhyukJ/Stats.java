@@ -21,4 +21,22 @@ public class Stats {
 	happy = 0.0; //
     }
 
+    //Accessors
+    public static double getAge() {return age;}
+    public static void setAge(double a) {age = a;}
+    public static double getWeight() {return weight;}
+    public static void setWeight(double w) {weight = w;}
+    public static double getHunger() {return hunger;}
+    public static void setHunger(double h) {hunger = h;}
+    public static double getSmarts() {return smarts;}
+    public static void setSmarts(double s) {smarts = s;}
+    public static double getEnergy() {return energy;}
+    public static void setEnergy(double e) {energy = e;}
+    public static double getHygiene() {return hygiene;}
+    public static void setHygiene(double h) {hygiene = h;}
+    public static double getActive() {return active;}
+    public static void setActive(double a) {active = a;}
+    public static double getHappy() {return happy;}
+    public static void setHappy(double h) {happy = h;}
+    
 }
