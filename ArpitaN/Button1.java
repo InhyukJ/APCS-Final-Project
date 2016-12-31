@@ -6,10 +6,13 @@ import javax.swing.*;
 
 public  class Button1 extends Button{
     public SetBackground panel;
+    public int btn1_choice;
     
     public Button1(BufferedImage img, SetBackground bg){
         super(141, 340, img);
         panel = bg;
+        btn1_choice = btn_choice;
+        
     }
     
     public void actionCommand(){

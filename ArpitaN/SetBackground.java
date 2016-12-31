@@ -34,7 +34,7 @@ extends JPanel {
     public int btn2_choice;
     public int btn3_choice;
     public boolean dark = false;
-    public JLabel default_choice;
+    public JLabel default_choice, main_screen, tama_sprite, misc_sprite;
     public Button1 button1;
 
     public SetBackground() throws MalformedURLException, IOException {
