@@ -89,7 +89,7 @@ extends JPanel {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         if (this.backgroundImage != null) {
-            graphics.drawImage(this.backgroundImage.getScaledInstance(500, 450, 1), 0, 0, null);
+            graphics.drawImage(this.backgroundImage.getScaledInstance(500, 450, Image.SCALE_SMOOTH), 0, 0, null);
         }
     }
 

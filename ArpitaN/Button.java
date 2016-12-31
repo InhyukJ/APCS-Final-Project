@@ -9,7 +9,7 @@ public abstract class Button extends JLabel{
     public int btn_choice;
     public ImageIcon color;
     
-    public Button(int x, int y, BufferedImage img){
+    public Button(int x, int y, BufferedImage img, boolean disabled){
         super(new ImageIcon(img.getScaledInstance(54, 53, Image.SCALE_SMOOTH)));
         color = new ImageIcon(img.getScaledInstance(54, 53, Image.SCALE_SMOOTH));
         
@@ -19,8 +19,7 @@ public abstract class Button extends JLabel{
                          
                 @Override
                 public void mouseClicked(MouseEvent e){
-                    btn_choice++;
-                    actionCommand();
+                   if(!disabled) actionCommand();
                 }
             
                 public void mousePressed(MouseEvent e){
