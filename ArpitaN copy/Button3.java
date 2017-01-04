@@ -58,14 +58,16 @@ public  class Button3 extends Button{
                 //panel.default_choice.repaint();
             }
         
-        else if((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) || panel.main_screen_choice == 1)){
+        else if((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) && panel.main_screen_choice == 1)){
             panel.main_screen.remove(panel.arrow);
             panel.repaint();
             panel.arrow_exists = false;
             panel.default_choice.remove(panel.main_screen);
             panel.repaint();
-            if(!(panel.arrow_exists)){Tama_Actions.eating_animation(panel, panel.arrow_choice);
-                                     Tama_Actions.remove_animation(panel);
+            if(!(panel.arrow_exists)){
+                panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                Tama_Actions.eating_animation(panel, panel.arrow_choice);
                                      }
             
         }
