@@ -65,9 +65,11 @@ public  class Button3 extends Button{
             panel.default_choice.remove(panel.main_screen);
             panel.repaint();
             if(!(panel.arrow_exists)){
-                panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
                // btn1.button_disable();
                 Tama_Actions.eating_animation(panel, panel.arrow_choice);
+                System.out.println("done");
+                
                                      }
             
         }

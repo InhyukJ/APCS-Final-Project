@@ -5,20 +5,22 @@ import javax.swing.*;
 
 public class Tama_Actions{
     //    public Tama_Sprite(ImageIcon img, int t, int stop, String action){
-    public static void default_animation(SetBackground gui){
+    public static void default_animation(SetBackground gui, boolean run){
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite main_tamagotchi = gui.def_sprite;
+       if(!run) gui.setStop();
         Tama_Sprite[] mySpriteArray = {main_tamagotchi};
         Point[] coordinate = {new Point(50, 100)};
         Animator default_animator = new Animator(mySpriteArray, 300, coordinate, gui.dark, gui);
         default_animator.animate();
+        System.out.println("heeyyy");
         
     }
     
     public static void remove_animation(SetBackground gui){
-        JLabel tama_setting = gui.default_choice;
-        tama_setting.remove(gui.def_sprite);
-        gui.default_choice.repaint();
+        default_animation(gui, false);
+        gui.default_choice.remove(gui.def_sprite);
+        gui.repaint();
     }
 
     public static void eating_animation(SetBackground gui, String food){

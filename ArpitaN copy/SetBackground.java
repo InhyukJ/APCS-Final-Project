@@ -75,14 +75,18 @@ extends JPanel {
         button3 = new Button3(btn3, this);
         add(button3);
         
-        if(run_default) Tama_Actions.default_animation(this);
+       
        //else {Tama_Actions.remove_animation(this);}
         
     }
 
-    public void runDefault (boolean run){
-        run_default = run;
+    public void setStop(){
+        def_sprite.stopFrame = 130;
     }
+  //  public void runDefault (boolean run){
+    //    run_default = run;
+      //   if(run_default) Tama_Actions.default_animation(this);
+    //}
     
     public static void makeDarker(BufferedImage bufferedImage) {
         for (int i = 0; i < bufferedImage.getWidth(); ++i) {
@@ -118,7 +122,10 @@ extends JPanel {
     private static void createAndShowUI() {
         JFrame jFrame = new JFrame("OverLayImages");
         try {
-            jFrame.getContentPane().add((Component)new SetBackground());
+            SetBackground gui = new SetBackground();
+            jFrame.getContentPane().add(gui);
+             Tama_Actions.default_animation(gui, true);
+            System.out.println("yoooooooo");
         }
         catch (MalformedURLException var1_1) {
             var1_1.printStackTrace();

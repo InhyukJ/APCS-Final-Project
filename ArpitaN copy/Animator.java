@@ -10,7 +10,7 @@ import javax.swing.*;
 */
 
 public class Animator {
-    //private Timer animator;
+    private Timer animator;
     private Tama_Sprite[] Sprites;
     private int delay;
     private Point[] coordinates;
@@ -36,12 +36,10 @@ public class Animator {
     public void animate(){
         
          //animator = new Timer(delay, this);  
-        Timer animator = new Timer(delay, null);
+        animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
             gui.default_choice.add(Sprites[i]);
         }
-        animator.start();
-        
         animator.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
@@ -49,9 +47,15 @@ public class Animator {
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
                     if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
-                    else animator.setRepeats(false);
+                    else {animator.stop();
+                    System.out.println("\n\n\n");
+                         }
+                //    else {isDone = true;
+                 //   animator.setRepeats(false);}
                 }
-            
+           
+        else{
+            System.out.println("lol");
             try {
                     Sprites[i].setIcon(imgArray[Sprites[i].currentFrame]);
                 } catch (ArrayIndexOutOfBoundsException e){
@@ -86,14 +90,19 @@ public class Animator {
                 Sprites[i].currentFrame = (Sprites[i].currentFrame + 1);
          
             }
-                   //System.out.println(isDone);
+            }
+                  // System.out.println(isDone);
          }
         
         });
         
-        
+         animator.start();
+        //animator.setRepeats(false);
     }
     
+    public void stop(){
+        if(isDone) animator.setRepeats(false);
+    }
     
     public void darken(Tama_Sprite sprite, ImageIcon icon){
             ImageIcon darker;
