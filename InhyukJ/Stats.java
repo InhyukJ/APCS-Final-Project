@@ -46,5 +46,10 @@ public class Stats {
     //public static double getActive() {return active;}
     //public static void setActive(double a) {active = a;}
     
+    //Sprites stats
+    public static void getOlder() {setAge(getAge() + 1.0);}
+    public static void eating() {
+	if (getHealth() + 3.0)
+	setHealth(getHealth() + )
     
 }

@@ -44,28 +44,32 @@ public  class Button3 extends Button{
                 //System.out.println(((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) && panel.main_screen_choice == 1)));
                // System.out.println(((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) || panel.main_screen_choice != 1)));
 
-        if((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) | panel.main_screen_choice != 1)){
-                Tama_Actions.remove_animation(panel);
-                ImageIcon mode1choice = new ImageIcon ("mode1_choice.png"); 
+        if((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) | panel.main_screen_choice != 1)){ //copy & paste with the ones that need panels choices
+                Tama_Actions.remove_animation(panel); //removes default animation
+                ImageIcon mode1choice = new ImageIcon ("mode1_choice.png"); //ImageIcon "mode1_choice" & make 
                 setting = new JLabel(mode1choice);
-                panel.default_choice.add(panel.main_screen);
-                panel.main_screen_choice = 1;
-                if(panel.dark) darken(setting, mode1choice);
-                panel.main_screen.setBounds(3, 50, 230, 130); 
+                panel.default_choice.add(panel.main_screen); //It adds the choice panels
+                panel.main_screen_choice = 1; 
+                if(panel.dark) darken(setting, mode1choice); //darken if option is pressed
+                panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
                 panel.main_screen.add(panel.arrow);
                 panel.arrow_exists = true;
-                panel.arrow.setBounds(35, 20, 30, 30);
+                panel.arrow.setBounds(35, 20, 30, 30); //Keep this
                 //panel.default_choice.repaint();
             }
         
-        else if((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) || panel.main_screen_choice == 1)){
+        else if((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) && panel.main_screen_choice == 1)){ //The code checks that the user made a choice
             panel.main_screen.remove(panel.arrow);
             panel.repaint();
             panel.arrow_exists = false;
             panel.default_choice.remove(panel.main_screen);
             panel.repaint();
-            if(!(panel.arrow_exists)){Tama_Actions.eating_animation(panel, panel.arrow_choice);
-                                     Tama_Actions.remove_animation(panel);
+            if(!(panel.arrow_exists)){
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                Tama_Actions.eating_animation(panel, panel.arrow_choice);
+                System.out.println("done");
+                
                                      }
             
         }
