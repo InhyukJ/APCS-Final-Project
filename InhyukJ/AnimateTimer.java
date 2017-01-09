@@ -6,9 +6,11 @@ import javax.swing.*;
 public class AnimateTimer {
     private Timer animator;
     private Timer animator2;
-    private Tama_Sprite[] Sprites;
+    private Tama_Sprite[] sprites;
+    private Tama_Sprite[] sprites2;
     private int delay;
     private Point[] coordinates;
+    private Point[] coordinates2;
     private boolean dark;
     private int xVel = 5;
     private int stopNumber;
@@ -16,40 +18,40 @@ public class AnimateTimer {
     private boolean isDone;
     private boolean stopAnimator;
     
-    public Animator(Tama_Sprite[] sprites, int d, Point[] points, boolean darkness, SetBackground bg){
+    public Animator(Tama_Sprite[] sprites, Tama_Sprites[] sprites2, int d, Point[] points, Point[] points2, boolean darkness, SetBackground bg){
         gui = bg;
         delay = d;
-        Sprites = sprites;
+        this.sprites = sprites;
+	this.sprites2 = sprites2;
         coordinates = points;
+	coordinates2 = points2;
         dark = darkness;
-        for(int i = 0; i < Sprites.length; i++){
-            Sprites[i].setBounds((int)coordinates[i].getX(), (int)coordinates[i].getY(), 60, 60);
+        for(int i = 0; i < sprites.length; i++){
+            sprites[i].setBounds((int)coordinates[i].getX(), (int)coordinates[i].getY(), 60, 60);
+        }
+	  for(int i = 0; i < sprites2.length; i++){
+            sprites2[i].setBounds((int)coordinates2[i].getX(), (int)coordinates2[i].getY(), 60, 60);
         }
         stopNumber = 0;
         isDone = false;
     }
-    
-    public void animate(){
-	
-         //animator = new Timer(delay, this);  
-        animator = new Timer(delay, null); //Initializes timer
-	animator2 = new Timer(delay, null);
-	stopAnimator = false;
-        for(int i = 0; i < Sprites.length; i++){ //adds all the imgs to GUI
-            gui.default_choice.add(Sprites[i]);
-        }
-        animator.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent evt) {            
-            //animator.setDelay(delay);
-	    if (!stopAnimator) animator.start();
+
+    public void animateHelper(int deez, Tama_Sprite[] Sprites) {
+	//if (!stopAnimator) animator.start();
             for(int i = 0; i < Sprites.length; i++){
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
                     if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
-                    else {animator.stop();
-			animator2.start();
-                    System.out.println("\n\n\n");
-                         }
+                    else {
+			if (deez == 1) {
+			    animator.stop();
+			    animator2.start();
+			    System.out.println("\n\n\n");
+			}
+			else if (deez == 2) {
+			    animator2.stop();
+			}
+		    }
                 //    else {isDone = true;
                  //   animator.setRepeats(false);}
                 }
@@ -93,7 +95,28 @@ public class AnimateTimer {
             }
 	    // System.out.println(isDone);
 	}
-		
+    }
+    
+    public void animate(){
+	
+         //animator = new Timer(delay, this);  
+        animator = new Timer(delay, null); //Initializes timer
+	animator2 = new Timer(delay, null);
+	stopAnimator = false;
+        for(int i = 0; i < Sprites.length; i++){ //adds all the imgs to GUI
+            gui.default_choice.add(Sprites[i]);
+        }
+        animator.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {            
+            //animator.setDelay(delay);
+	    animateHelper(1, sprites);
+	}
+	    });
+
+	animator2.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent evt) {
+		    animateHelper(2, sprites2);
+		}
 	    });
         
 	animator.start();
