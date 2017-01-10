@@ -8,13 +8,13 @@ public class Tama_Actions{
     public static void default_animation(SetBackground gui, boolean run){
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite main_tamagotchi = gui.def_sprite;
-	if(!run) gui.setStop();
-	Tama_Sprite[] mySpriteArray = {main_tamagotchi};
-	Point[] coordinate = {new Point(50, 100)};
-	Animator default_animator = new Animator(mySpriteArray, 300, coordinate, gui.dark, gui);
-	default_animator.animate();
-	System.out.println("heeyyy");
-	
+        if(!run) gui.setStop();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Point[] coordinate = {new Point(50, 100)};
+        Animator1 default_animator = new Animator1(mySpriteArray, 300, coordinate, gui.dark, gui);
+        default_animator.animate();
+        System.out.println("heeyyy");
+        
     }
     
     public static void remove_animation(SetBackground gui){
@@ -26,8 +26,8 @@ public class Tama_Actions{
     public static void eating_animation(SetBackground gui, String food){
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite meal_sprite;
-        gui.def_sprite = new Tama_Sprite(new ImageIcon("Mametchi-eating0.png"), 3, 200, "Mametchi-eating"); 
-        Tama_Sprite eating_tamagotchi = gui.def_sprite; 
+        //gui.def_sprite = 
+        Tama_Sprite eating_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-eating0.png"), 3, 200, "Mametchi-eating"); 
          int i = (int)(Math.random() * 3);
       
         if(food.equals("meal")){
@@ -40,13 +40,14 @@ public class Tama_Actions{
             meal_sprite = new Tama_Sprite(new ImageIcon(snack + "0.png"), 3, 200, snack);
             
         }
-	Tama_Sprite main_tamagotchi = gui.def_sprite;
-	Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Tama_Sprite main_tamagotchi = gui.def_sprite;
+       gui.setStart();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
         Tama_Sprite[] mySpriteArray1 = {eating_tamagotchi, meal_sprite};
 
-	Point[] coordinate = {new Point(50, 100)};
+        Point[] coordinate = {new Point(50, 100)};
         Point[] coordinates = {new Point(80, 100), new Point(10, 100)};
-        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  1000, coordinates, coordinate, gui.dark, gui);
+        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
         eating.animate();
     }
 

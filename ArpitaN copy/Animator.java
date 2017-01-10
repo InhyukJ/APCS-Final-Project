@@ -18,27 +18,13 @@ public class Animator {
     private boolean isDone;
     private boolean stopAnimator;
 
-    public Animator (Tama_Sprite[] sprites, int d, Point[] points, boolean darkness, SetBackground bg) {
-	gui = bg;
-	delay = d;
-	this.sprites = sprites;
-	coordinates = points;
-	dark = darkness;
-	for(int i = 0; i < sprites.length; i++){
-            sprites[i].setBounds((int)coordinates[i].getX(), (int)coordinates[i].getY(), 60, 60);
-        }
-	for(int i = 0; i < sprites2.length; i++){
-            sprites2[i].setBounds((int)coordinates2[i].getX(), (int)coordinates2[i].getY(), 60, 60);
-        }
-        stopNumber = 0;
-        isDone = false;
-    }
+   
     
     public Animator(Tama_Sprite[] sprites, Tama_Sprite[] sprites2, int d, Point[] points, Point[] points2, boolean darkness, SetBackground bg){
         gui = bg;
         delay = d;
         this.sprites = sprites;
-	this.sprites2 = sprites2;
+        this.sprites2 = sprites2;
         coordinates = points;
 	coordinates2 = points2;
         dark = darkness;
@@ -53,16 +39,18 @@ public class Animator {
     }
     
     public void animateHelper(int deez, Tama_Sprite[] Sprites) {
-	//if (!stopAnimator) animator.start();
+      
 	for(int i = 0; i < Sprites.length; i++){
 	    ImageIcon[] imgArray = Sprites[i].getImgArray();
-	    if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
+	    if(Sprites[i].getCurrentFrame() >= imgArray.length){
+            //System.out.println("hey");
 		if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
 		else {
-		    gui.default_choice.remove(Sprites[i]);
 		    if (deez == 1) {
+                gui.default_choice.remove(Sprites[i]);
+                gui.repaint();
 			animator.stop();
-			gui.default_choice.add(sprites2[i]);
+			gui.default_choice.add(sprites2[0]);
 			animator2.start();
 			System.out.println("\n\n\n");
 		    }
@@ -70,16 +58,12 @@ public class Animator {
 			animator2.stop();
 		    }
 		}
-                //    else {isDone = true;
-		//   animator.setRepeats(false);}
 	    }
 	    
 	    else{
-		System.out.println("lol");
 		try {
 		    Sprites[i].setIcon(imgArray[Sprites[i].currentFrame]);
                 } catch (ArrayIndexOutOfBoundsException e){
-		    //animator.stop();
 		    System.out.println("WTF");
 		    gui.default_choice.remove(Sprites[i]);
 		    gui.repaint();
@@ -111,7 +95,6 @@ public class Animator {
 		
 	    }
 	}
-	// System.out.println(isDone);
     }
     
     public void animate(){
@@ -125,7 +108,7 @@ public class Animator {
         }
         animator.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {            
-		    //animator.setDelay(delay);
+		    animator.setDelay(1000);
 		    animateHelper(1, sprites);
 		}
 	    });
@@ -137,7 +120,6 @@ public class Animator {
 	    });
         
 	animator.start();
-        //animator.setRepeats(false);
     }
     
     public void stop(){

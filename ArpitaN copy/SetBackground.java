@@ -49,9 +49,9 @@ extends JPanel {
         btn1 = ImageIO.read(new URL("http://www.clker.com/cliparts/a/9/3/e/1194984754884631372button-blue_benji_park_01.svg.med.png"));
         btn2 = ImageIO.read(new URL("http://www.clker.com/cliparts/4/8/d/d/11949847561597560220button-seagreen_benji_pa_01.svg.med.png"));
         btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));
-      //  backgoundImage = ImageIO.read(new File("tamagotchi_faceplate.jpg"));
-       // btn1 = ImageIO.read(new File("blue_button.png"));
-       // btn2 = ImageIO.read(new File("seagreen_button.png");
+        
+        
+
         tamagotchi = new ImageIcon("mode.png");
         Image image = this.tamagotchi.getImage().getScaledInstance(246, 240, Image.SCALE_SMOOTH);
         tamagotchi = new ImageIcon(image);
@@ -82,6 +82,10 @@ extends JPanel {
 
     public void setStop(){
         def_sprite.stopFrame = 130;
+    }
+    
+    public void setStart(){
+        def_sprite.stopFrame = 0;
     }
   //  public void runDefault (boolean run){
     //    run_default = run;

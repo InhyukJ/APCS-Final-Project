@@ -32,22 +32,12 @@ public  class Button3 extends Button{
     public void actionCommand(){
             JLabel arrow = panel.arrow;
             JLabel setting = panel.main_screen;
-          //Tama_Actions.remove_animation(panel);
             
-            //panel.remove(panel.default_choice);
-           // panel.repaint();
-
-           // panel.default_choice.setIcon(new ImageIcon());
-
-            //System.out.println(btn1.btn1_choice % 8);
-            //btn1.disable();
-                //System.out.println(((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) && panel.main_screen_choice == 1)));
-               // System.out.println(((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) || panel.main_screen_choice != 1)));
-
-        if((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) | panel.main_screen_choice != 1)){ //EATING
+        if((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) || panel.main_screen_choice != 1)){ 
+                System.out.println("EATING");
                 Tama_Actions.remove_animation(panel); //removes default animation
                 ImageIcon mode1choice = new ImageIcon ("mode1_choice.png"); //ImageIcon "mode1_choice" & make 
-                setting = new JLabel(mode1choice);
+                panel.main_screen.setIcon(new ImageIcon ("mode1_choice.png"));
                 panel.default_choice.add(panel.main_screen); //It adds the choice panels
                 panel.main_screen_choice = 1; 
                 if(panel.dark) darken(setting, mode1choice); //darken if option is pressed
@@ -63,6 +53,7 @@ public  class Button3 extends Button{
             panel.repaint();
             panel.arrow_exists = false;
             panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
             panel.repaint();
             if(!(panel.arrow_exists)){
                 //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
@@ -74,10 +65,11 @@ public  class Button3 extends Button{
             
         }
 
-	else if((btn1.btn1_choice % 8) == 3 && (!(panel.arrow_exists) | panel.main_screen_choice != 3)){ //GAMES
+	else if((btn1.btn1_choice % 8) == 3 && (!(panel.arrow_exists) || panel.main_screen_choice != 3)){ 
+        System.out.println("GAMES");
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode3choice = new ImageIcon ("mode3_choice.png"); //ImageIcon "mode1_choice" & make 
-	    setting = new JLabel(mode3choice);
+	    panel.main_screen.setIcon(new ImageIcon ("mode3_choice.png"));
 	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
 	    panel.main_screen_choice = 3; 
 	    if(panel.dark) darken(setting, mode3choice); //darken if option is pressed
@@ -87,11 +79,30 @@ public  class Button3 extends Button{
 	    panel.arrow.setBounds(35, 20, 30, 30); //Keep this
 	    //panel.default_choice.repaint();
 	}
+        
+      else if((btn1.btn1_choice % 8) == 3 && ((panel.arrow_exists) && panel.main_screen_choice == 3)){ 
+          //The code checks that the user made a choice
+            panel.main_screen.remove(panel.arrow);
+            panel.repaint();
+            panel.arrow_exists = false;
+            panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
+            panel.repaint();
+            if(!(panel.arrow_exists)){
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                //Tama_Actions.eating_animation(panel, panel.arrow_choice);
+                System.out.println("done");
+                
+            }
+            
+        }   
 
-	else if((btn1.btn1_choice % 8) == 5 && (!(panel.arrow_exists) | panel.main_screen_choice != 5)){ //HEALING
-	    Tama_Actions.remove_animation(panel); //removes default animation
+	else if((btn1.btn1_choice % 8) == 5 && (!(panel.arrow_exists) || panel.main_screen_choice != 5)){ 
+        System.out.println("HEALING");
+        Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode5choice = new ImageIcon ("mode5_choice.png"); //ImageIcon "mode1_choice" & make 
-	    setting = new JLabel(mode5choice);
+	    panel.main_screen.setIcon(new ImageIcon ("mode5_choice.png"));
 	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
 	    panel.main_screen_choice = 5; 
 	    if(panel.dark) darken(setting, mode5choice); //darken if option is pressed
@@ -101,11 +112,29 @@ public  class Button3 extends Button{
 	    panel.arrow.setBounds(35, 20, 30, 30); //Keep this
 	    //panel.default_choice.repaint();
 	}
+        
+    else if((btn1.btn1_choice % 8) == 5 && ((panel.arrow_exists) && panel.main_screen_choice == 5)){ //The code checks that the user made a choice
+            panel.main_screen.remove(panel.arrow);
+            panel.repaint();
+            panel.arrow_exists = false;
+            panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
+            panel.repaint();
+            if(!(panel.arrow_exists)){
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                //Tama_Actions.eating_animation(panel, panel.arrow_choice);
+                System.out.println("done");
+                
+            }
+            
+        } 
 
-	else if((btn1.btn1_choice % 8) == 6 && (!(panel.arrow_exists) | panel.main_screen_choice != 6)){ //LIGHTS
-	    Tama_Actions.remove_animation(panel); //removes default animation
+	else if((btn1.btn1_choice % 8) == 6 && (!(panel.arrow_exists) | panel.main_screen_choice != 6)){
+         System.out.println("LIGHTS");
+        Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode5choice = new ImageIcon ("mode6_choice.png"); //ImageIcon "mode1_choice" & make 
-	    setting = new JLabel(mode6choice);
+	    panel.main_screen.setIcon(new ImageIcon ("mode6_choice.png"));
 	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
 	    panel.main_screen_choice = 6; 
 	    if(panel.dark) darken(setting, mode6choice); //darken if option is pressed
@@ -115,6 +144,23 @@ public  class Button3 extends Button{
 	    panel.arrow.setBounds(35, 20, 30, 30); //Keep this
 	    //panel.default_choice.repaint();
 	}
+    
+      else if((btn1.btn1_choice % 8) == 6 && ((panel.arrow_exists) && panel.main_screen_choice == 6)){ //The code checks that the user made a choice
+            panel.main_screen.remove(panel.arrow);
+            panel.repaint();
+            panel.arrow_exists = false;
+            panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
+            panel.repaint();
+            if(!(panel.arrow_exists)){
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                //Tama_Actions.eating_animation(panel, panel.arrow_choice);
+                System.out.println("done");
+                
+            }
+            
+        }
     }
     
 }            //reminder: make this so the middle button's btn_choice variable is only affected by the location of the arrow

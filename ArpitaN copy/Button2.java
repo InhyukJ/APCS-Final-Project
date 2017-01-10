@@ -40,6 +40,21 @@ public  class Button2 extends Button{
             if(arrow.getY() == 50) panel.arrow_choice = "snack";
         //System.out.println(panel.arrow_choice);
             }
+            
+        if(btn1.btn1_choice % 8 == 3){
+            
+            if(arrow.getY() == 20) panel.arrow_choice = "mini-game";
+            if(arrow.getY() == 50) panel.arrow_choice = "reading";
+        //System.out.println(panel.arrow_choice);
+            }
+            
+         if(btn1.btn1_choice % 8 == 5){
+            
+            if(arrow.getY() == 20) panel.arrow_choice = "pill";
+            if(arrow.getY() == 50) panel.arrow_choice = "syringe";
+        //System.out.println(panel.arrow_choice);
+            }    
+        
         }
     }
 
