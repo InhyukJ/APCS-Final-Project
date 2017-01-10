@@ -27,9 +27,6 @@ public class Animator {
 	for(int i = 0; i < sprites.length; i++){
             sprites[i].setBounds((int)coordinates[i].getX(), (int)coordinates[i].getY(), 60, 60);
         }
-	for(int i = 0; i < sprites2.length; i++){
-            sprites2[i].setBounds((int)coordinates2[i].getX(), (int)coordinates2[i].getY(), 60, 60);
-        }
         stopNumber = 0;
         isDone = false;
     }
