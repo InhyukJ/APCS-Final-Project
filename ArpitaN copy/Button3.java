@@ -61,9 +61,42 @@ public  class Button3 extends Button{
                 Tama_Actions.eating_animation(panel, panel.arrow_choice);
                 System.out.println("done");
                 
-                                     }
+            }
             
         }
+        
+      else if((btn1.btn1_choice % 8) == 2 && (!(panel.arrow_exists) || panel.main_screen_choice != 2)){ 
+        System.out.println("SHOWERING");
+	    Tama_Actions.remove_animation(panel); //removes default animation
+	    ImageIcon mode2choice = new ImageIcon ("mode2_choice.png"); //ImageIcon "mode1_choice" & make 
+	    panel.main_screen.setIcon(new ImageIcon ("mode2_choice.png"));
+	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
+	    panel.main_screen_choice = 2; 
+	    if(panel.dark) darken(setting, mode2choice); //darken if option is pressed
+	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
+	    panel.main_screen.add(panel.arrow);
+	    panel.arrow_exists = true;
+	    panel.arrow.setBounds(20, 20, 30, 30); //Keep this
+	    //panel.default_choice.repaint();
+	}
+        
+      else if((btn1.btn1_choice % 8) == 2 && ((panel.arrow_exists) && panel.main_screen_choice == 2)){ 
+          //The code checks that the user made a choice
+            panel.main_screen.remove(panel.arrow);
+            panel.repaint();
+            panel.arrow_exists = false;
+            panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
+            panel.repaint();
+            if(!(panel.arrow_exists)){
+                //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
+               // btn1.button_disable();
+                Tama_Actions.showering_animation(panel);
+                System.out.println("done");
+                
+            }
+            
+        }     
 
 	else if((btn1.btn1_choice % 8) == 3 && (!(panel.arrow_exists) || panel.main_screen_choice != 3)){ 
         System.out.println("GAMES");
@@ -133,7 +166,7 @@ public  class Button3 extends Button{
 	else if((btn1.btn1_choice % 8) == 6 && (!(panel.arrow_exists) | panel.main_screen_choice != 6)){
          System.out.println("LIGHTS");
         Tama_Actions.remove_animation(panel); //removes default animation
-	    ImageIcon mode5choice = new ImageIcon ("mode6_choice.png"); //ImageIcon "mode1_choice" & make 
+	    ImageIcon mode6choice = new ImageIcon ("mode6_choice.png"); //ImageIcon "mode1_choice" & make 
 	    panel.main_screen.setIcon(new ImageIcon ("mode6_choice.png"));
 	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
 	    panel.main_screen_choice = 6; 
