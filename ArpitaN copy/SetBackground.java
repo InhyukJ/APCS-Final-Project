@@ -33,7 +33,7 @@ extends JPanel {
     public int btn1_choice;
     public int btn2_choice;
     public int btn3_choice;
-    public boolean dark = false;
+    public boolean dark;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
     private boolean run_default = true;
@@ -50,7 +50,7 @@ extends JPanel {
         btn2 = ImageIO.read(new URL("http://www.clker.com/cliparts/4/8/d/d/11949847561597560220button-seagreen_benji_pa_01.svg.med.png"));
         btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));
         
-        
+        dark = false;
 
         tamagotchi = new ImageIcon("mode.png");
         Image image = this.tamagotchi.getImage().getScaledInstance(246, 240, Image.SCALE_SMOOTH);
@@ -87,10 +87,7 @@ extends JPanel {
     public void setStart(){
         def_sprite.stopFrame = 0;
     }
-  //  public void runDefault (boolean run){
-    //    run_default = run;
-      //   if(run_default) Tama_Actions.default_animation(this);
-    //}
+ 
     
     public static void makeDarker(BufferedImage bufferedImage) {
         for (int i = 0; i < bufferedImage.getWidth(); ++i) {

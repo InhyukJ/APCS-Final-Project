@@ -26,8 +26,8 @@ public class Animator {
         this.sprites = sprites;
         this.sprites2 = sprites2;
         coordinates = points;
-	coordinates2 = points2;
-        dark = darkness;
+        coordinates2 = points2;
+        
         for(int i = 0; i < sprites.length; i++){
             sprites[i].setBounds((int)coordinates[i].getX(), (int)coordinates[i].getY(), 60, 60);
         }
@@ -39,7 +39,8 @@ public class Animator {
     }
     
     public void animateHelper(int deez, Tama_Sprite[] Sprites) {
-      
+      dark = gui.dark;
+   // System.out.println(dark);
 	for(int i = 0; i < Sprites.length; i++){
 	    ImageIcon[] imgArray = Sprites[i].getImgArray();
 	    if(Sprites[i].getCurrentFrame() >= imgArray.length){
@@ -51,6 +52,7 @@ public class Animator {
                 gui.repaint();
 			animator.stop();
 			gui.default_choice.add(sprites2[0]);
+                if(dark) darken(sprites2[0], imgArray[sprites2[0].currentFrame]);
 			animator2.start();
 			System.out.println("\n\n\n");
 		    }
@@ -78,9 +80,9 @@ public class Animator {
 		    x += xVel;
 		    
 		    
-		    if(x > 180){
+		    if(x > 150){
 			xVel *= -1;
-			x = 180;
+			x = 150;
 		    }
 		    else if(x < 20) {
 			xVel = 5;
@@ -98,13 +100,15 @@ public class Animator {
     }
     
     public void animate(){
-	
+	      dark = gui.dark;
 	//animator = new Timer(delay, this);  
-      animator = new Timer(1000, null); //Initializes timer
-	animator2 = new Timer(delay, null);
+      animator = new Timer(delay, null); //Initializes timer
+	animator2 = new Timer(100, null);
 	stopAnimator = false;
-        for(int i = 0; i < sprites.length; i++){ //adds all the imgs to GUI
+        for(int i = 0; i < sprites.length; i++){
+             if(dark) darken(sprites[i], sprites[i].getImgArray()[sprites[i].currentFrame]);//adds all the imgs to GUI
             gui.default_choice.add(sprites[i]);
+         //   if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
         }
         animator.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {            
@@ -115,6 +119,7 @@ public class Animator {
 	
 	animator2.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
+           
 		    animateHelper(2, sprites2);
 		}
 	    });

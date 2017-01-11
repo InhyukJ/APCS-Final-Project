@@ -11,7 +11,7 @@ public class Tama_Actions{
         if(!run) gui.setStop();
         Tama_Sprite[] mySpriteArray = {main_tamagotchi};
         Point[] coordinate = {new Point(50, 100)};
-        Animator1 default_animator = new Animator1(mySpriteArray, 300, coordinate, gui.dark, gui);
+        Animator1 default_animator = new Animator1(mySpriteArray, 100, coordinate, gui.dark, gui);
         default_animator.animate();
         System.out.println("heeyyy");
         
@@ -47,7 +47,7 @@ public class Tama_Actions{
 
         Point[] coordinate = {new Point(50, 100)};
         Point[] coordinates = {new Point(80, 100), new Point(10, 100)};
-        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
+        Animator eating = new Animator(mySpriteArray1, mySpriteArray, 800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
     }
     
@@ -67,7 +67,7 @@ public class Tama_Actions{
 
         Point[] coordinate = {new Point(50, 100)};
         Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
-        Animator shower = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
+        Animator shower = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         shower.animate();
     }
     
@@ -93,7 +93,7 @@ public class Tama_Actions{
 
         Point[] coordinate = {new Point(50, 100)};
         Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
-        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
+        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
     }
 

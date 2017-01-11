@@ -50,7 +50,7 @@ public  class Button3 extends Button{
         
         else if((btn1.btn1_choice % 8) == 1 && ((panel.arrow_exists) && panel.main_screen_choice == 1)){
             if(arrow.getY() == 20) panel.arrow_choice = "meal";
-            if(arrow.getY() != 20) panel.arrow_choice = "snack";
+            else if(arrow.getY() != 20) panel.arrow_choice = "snack";
                             System.out.println(panel.arrow_choice);
 //The code checks that the user made a choice
             panel.main_screen.remove(panel.arrow);
@@ -152,7 +152,7 @@ public  class Button3 extends Button{
         
     else if((btn1.btn1_choice % 8) == 5 && ((panel.arrow_exists) && panel.main_screen_choice == 5)){ //The code checks that the user made a choice
             if(arrow.getY() == 20) panel.arrow_choice = "pill";
-            if(arrow.getY() == 50) panel.arrow_choice = "syringe";
+           else if(arrow.getY() != 20) panel.arrow_choice = "syringe";
                 System.out.println(panel.arrow_choice);
 
             panel.main_screen.remove(panel.arrow);
@@ -187,7 +187,10 @@ public  class Button3 extends Button{
 	}
     
       else if((btn1.btn1_choice % 8) == 6 && ((panel.arrow_exists) && panel.main_screen_choice == 6)){ //The code checks that the user made a choice
-          
+            if(arrow.getY() == 20) panel.arrow_choice = "on";
+           else if(arrow.getY() != 20) panel.arrow_choice = "off";
+            if(panel.arrow_choice.equals("on")) panel.dark = false;
+            else if(panel.arrow_choice.equals("off")) panel.dark = true;
             panel.main_screen.remove(panel.arrow);
             panel.repaint();
             panel.arrow_exists = false;
@@ -195,6 +198,10 @@ public  class Button3 extends Button{
             panel.main_screen_choice = 0;
             panel.repaint();
             if(!(panel.arrow_exists)){
+               btn1.darken(new ImageIcon("mode" + (btn1.btn1_choice % 8) + ".png"));
+                 panel.setStart();
+               Tama_Actions.default_animation(panel, true); 
+                
                 //panel.default_choice.setIcon(new ImageIcon ("mode.png"));
                // btn1.button_disable();
                 //Tama_Actions.eating_animation(panel, panel.arrow_choice);

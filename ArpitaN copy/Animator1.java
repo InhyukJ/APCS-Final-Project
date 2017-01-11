@@ -34,15 +34,19 @@ public class Animator1 {
     }
     
     public void animate(){
-        
+        dark = gui.dark;
          //animator = new Timer(delay, this);  
         animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
+           if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
             gui.default_choice.add(Sprites[i]);
+            
         }
         animator.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
+            dark = gui.dark;
+    //System.out.println(dark);
             for(int i = 0; i < Sprites.length; i++){
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
@@ -72,13 +76,13 @@ public class Animator1 {
                 x += xVel;
              
                 
-                if(x > 180){
+                if(x > 150){
                     xVel *= -1;
-                    x = 180;
+                    x = 150;
                 }
-                else if(x < 20) {
+                else if(x < 40) {
                     xVel = 5;
-                    x = 20;
+                    x = 40;
                 }
                 x += xVel;
                 
