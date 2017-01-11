@@ -100,7 +100,7 @@ public class Animator {
     public void animate(){
 	
 	//animator = new Timer(delay, this);  
-        animator = new Timer(delay, null); //Initializes timer
+      animator = new Timer(1000, null); //Initializes timer
 	animator2 = new Timer(delay, null);
 	stopAnimator = false;
         for(int i = 0; i < sprites.length; i++){ //adds all the imgs to GUI
@@ -108,7 +108,7 @@ public class Animator {
         }
         animator.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {            
-		    animator.setDelay(1000);
+		    //animator.setDelay(3000);
 		    animateHelper(1, sprites);
 		}
 	    });
