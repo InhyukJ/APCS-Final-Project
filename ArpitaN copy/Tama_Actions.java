@@ -70,6 +70,32 @@ public class Tama_Actions{
         Animator shower = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
         shower.animate();
     }
+    
+     public static void healing_animation(SetBackground gui, String medicine){
+        JLabel tama_setting = gui.default_choice;
+        Tama_Sprite medicine_sprite;
+        //gui.def_sprite = 
+        Tama_Sprite healing_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-healing0.png"), 4, 200, "Mametchi-healing"); 
+        
+        System.out.println(gui.arrow_choice + "yoo");
+        if(medicine.equals("pill")){
+            medicine_sprite = new Tama_Sprite(new ImageIcon("pill0.png"), 4, 200, "pill");
+        }
+        else{
+            
+            medicine_sprite = new Tama_Sprite(new ImageIcon("syringe0.png"), 4, 200, "syringe");
+            
+        }
+        Tama_Sprite main_tamagotchi = gui.def_sprite;
+       gui.setStart();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Tama_Sprite[] mySpriteArray1 = {healing_tamagotchi, medicine_sprite};
+
+        Point[] coordinate = {new Point(50, 100)};
+        Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
+        Animator eating = new Animator(mySpriteArray1, mySpriteArray,  500, coordinates, coordinate, gui.dark, gui);
+        eating.animate();
+    }
 
     // Put more animation sequences here:
     //first make the actual sprites you want to animate on a photo editor and name it like I did for some of the frames

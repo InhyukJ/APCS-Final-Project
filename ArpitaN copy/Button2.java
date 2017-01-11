@@ -36,8 +36,8 @@ public  class Button2 extends Button{
       //  System.out.println(btn1.btn1_choice % 8);
         if(btn1.btn1_choice % 8 == 1){
             
-            if(arrow.getY() == 20) panel.arrow_choice = "meal";
-            if(arrow.getY() == 50) panel.arrow_choice = "snack";
+          /*  if(arrow.getY() == 20) panel.arrow_choice = "meal";
+            if(arrow.getY() == 50) panel.arrow_choice = "snack";*/
         //System.out.println(panel.arrow_choice);
             }
             
@@ -50,9 +50,9 @@ public  class Button2 extends Button{
             
          if(btn1.btn1_choice % 8 == 5){
             
-            if(arrow.getY() == 20) panel.arrow_choice = "pill";
-            if(arrow.getY() == 50) panel.arrow_choice = "syringe";
-        //System.out.println(panel.arrow_choice);
+           /* if(arrow.getY() == 20) panel.arrow_choice = "pill";
+            if(arrow.getY() != 20) panel.arrow_choice = "syringe";*/
+        System.out.println(panel.arrow_choice);
             }    
         
         }
