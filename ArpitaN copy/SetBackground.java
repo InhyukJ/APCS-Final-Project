@@ -33,11 +33,11 @@ extends JPanel {
     public int btn1_choice;
     public int btn2_choice;
     public int btn3_choice;
-    public boolean dark;
+    public boolean dark, sleeping;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
-    private boolean run_default = true;
-    private boolean is_default = true;
+   // private boolean run_default = true;
+   // private boolean is_default = true;
     public int main_screen_choice = 0;
     public JLabel default_choice, arrow, main_screen;
     public Button1 button1;
@@ -52,7 +52,7 @@ extends JPanel {
         btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));
         
         dark = false;
-
+        sleeping = false;
         tamagotchi = new ImageIcon("mode.png");
         Image image = this.tamagotchi.getImage().getScaledInstance(246, 240, Image.SCALE_SMOOTH);
         tamagotchi = new ImageIcon(image);
