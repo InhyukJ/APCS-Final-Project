@@ -8,7 +8,7 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -46,10 +46,15 @@ extends JPanel {
     public Button3 button3;
 
     public SetBackground() throws MalformedURLException, IOException {
-       backgroundImage = ImageIO.read(this.backgroundimg);
+        /*backgroundImage = ImageIO.read(this.backgroundimg);
         btn1 = ImageIO.read(new URL("http://www.clker.com/cliparts/a/9/3/e/1194984754884631372button-blue_benji_park_01.svg.med.png"));
         btn2 = ImageIO.read(new URL("http://www.clker.com/cliparts/4/8/d/d/11949847561597560220button-seagreen_benji_pa_01.svg.med.png"));
-        btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));
+        btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));*/
+        
+        backgroundImage = ImageIO.read(new File("tamagotchi_faceplate.jpg"));
+        btn1 = ImageIO.read(new File("blue_button.png"));
+        btn2 = ImageIO.read(new File("seagreen_button.png"));
+        btn3 = ImageIO.read(new File("purple_button.png"));
         
         dark = false;
         sleeping = false;

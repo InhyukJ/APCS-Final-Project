@@ -40,11 +40,11 @@ public class Animator {
     
     public void animateHelper(int deez, Tama_Sprite[] Sprites) {
       dark = gui.dark;
-   // System.out.println(dark);
+
 	for(int i = 0; i < Sprites.length; i++){
 	    ImageIcon[] imgArray = Sprites[i].getImgArray();
 	    if(Sprites[i].getCurrentFrame() >= imgArray.length){
-            //System.out.println("hey");
+
 		if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
 		else {
 		    if (deez == 1) {
@@ -74,7 +74,7 @@ public class Animator {
 		
 		if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
 		
-		if(Sprites[i].getStop() == 0) {
+		if((Sprites[i].getStop() == 0) && !(gui.sleeping)) {
 		    
 		    int x = Sprites[i].getX();
 		    x += xVel;
@@ -101,18 +101,18 @@ public class Animator {
     
     public void animate(){
 	      dark = gui.dark;
-	//animator = new Timer(delay, this);  
+	
       animator = new Timer(delay, null); //Initializes timer
 	animator2 = new Timer(100, null);
 	stopAnimator = false;
         for(int i = 0; i < sprites.length; i++){
              if(dark) darken(sprites[i], sprites[i].getImgArray()[sprites[i].currentFrame]);//adds all the imgs to GUI
             gui.default_choice.add(sprites[i]);
-         //   if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+        
         }
         animator.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {            
-		    //animator.setDelay(3000);
+		  
 		    animateHelper(1, sprites);
 		}
 	    });
@@ -141,7 +141,4 @@ public class Animator {
 	SetBackground.makeDarker(buffered);
     }
     
-    //public void actionPerformed(ActionEvent e){
-    
-    //}
 }

@@ -92,20 +92,17 @@ public class Tama_Actions{
         Tama_Sprite[] mySpriteArray1 = {healing_tamagotchi, medicine_sprite};
 
         Point[] coordinate = {new Point(50, 100)};
-        Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
+        Point[] coordinates = {new Point(90, 110), new Point(30, 100)};
         Animator eating = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
     }
 
     public static void sleeping_animation(SetBackground gui, boolean sleeping) {
-        //JLabel tama_setting = gui.default_choice;
         Tama_Sprite living_tamagotchi =   new Tama_Sprite(new ImageIcon("Mametchi-def0.png"), 2, 0, "Mametchi-def");
         Tama_Sprite sleeping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-sleeping0.png"), 2, 0, "Mametchi-sleeping");
         if(sleeping)gui.def_sprite = sleeping_tamagotchi;
         else if (!(sleeping)) gui.def_sprite = living_tamagotchi;
         default_animation(gui, true);
-        
-      //  Tama_Sprite[] mySpriteArray1 = {sleeping_tamagotchi};
     }
     // Put more animation sequences here:
     //first make the actual sprites you want to animate on a photo editor and name it like I did for some of the frames

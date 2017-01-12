@@ -35,7 +35,7 @@ public class Animator1 {
     
     public void animate(){
         dark = gui.dark;
-         //animator = new Timer(delay, this);  
+        
         animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
            if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
@@ -46,15 +46,14 @@ public class Animator1 {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
             dark = gui.dark;
-    //System.out.println(dark);
+   
             for(int i = 0; i < Sprites.length; i++){
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
                     if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
                     else {animator.stop();
                          }
-                //    else {isDone = true;
-                 //   animator.setRepeats(false);}
+               
                 }
            
         else{
@@ -70,7 +69,7 @@ public class Animator1 {
             
             if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
                 
-            if(Sprites[i].getStop() == 0) {
+            if((Sprites[i].getStop() == 0) && !(gui.sleeping)) {
                 
                 int x = Sprites[i].getX();
                 x += xVel;
