@@ -37,6 +37,7 @@ extends JPanel {
     public String arrow_choice = "";
     public boolean arrow_exists = false;
     private boolean run_default = true;
+    private boolean is_default = true;
     public int main_screen_choice = 0;
     public JLabel default_choice, arrow, main_screen;
     public Button1 button1;
