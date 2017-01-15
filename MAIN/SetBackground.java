@@ -33,6 +33,7 @@ extends JPanel {
     public int btn1_choice;
     public int btn2_choice;
     public int btn3_choice;
+    public int poop;
     public boolean dark, sleeping;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
