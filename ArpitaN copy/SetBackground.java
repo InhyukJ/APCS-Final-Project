@@ -8,7 +8,7 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -33,10 +33,11 @@ extends JPanel {
     public int btn1_choice;
     public int btn2_choice;
     public int btn3_choice;
-    public boolean dark = false;
+    public boolean dark, sleeping;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
-    private boolean run_default = true;
+   // private boolean run_default = true;
+   // private boolean is_default = true;
     public int main_screen_choice = 0;
     public JLabel default_choice, arrow, main_screen;
     public Button1 button1;
@@ -45,13 +46,18 @@ extends JPanel {
     public Button3 button3;
 
     public SetBackground() throws MalformedURLException, IOException {
-       backgroundImage = ImageIO.read(this.backgroundimg);
+        /*backgroundImage = ImageIO.read(this.backgroundimg);
         btn1 = ImageIO.read(new URL("http://www.clker.com/cliparts/a/9/3/e/1194984754884631372button-blue_benji_park_01.svg.med.png"));
         btn2 = ImageIO.read(new URL("http://www.clker.com/cliparts/4/8/d/d/11949847561597560220button-seagreen_benji_pa_01.svg.med.png"));
-        btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));
-      //  backgoundImage = ImageIO.read(new File("tamagotchi_faceplate.jpg"));
-       // btn1 = ImageIO.read(new File("blue_button.png"));
-       // btn2 = ImageIO.read(new File("seagreen_button.png");
+        btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));*/
+        
+        backgroundImage = ImageIO.read(new File("tamagotchi_faceplate.jpg"));
+        btn1 = ImageIO.read(new File("blue_button.png"));
+        btn2 = ImageIO.read(new File("seagreen_button.png"));
+        btn3 = ImageIO.read(new File("purple_button.png"));
+        
+        dark = false;
+        sleeping = false;
         tamagotchi = new ImageIcon("mode.png");
         Image image = this.tamagotchi.getImage().getScaledInstance(246, 240, Image.SCALE_SMOOTH);
         tamagotchi = new ImageIcon(image);
@@ -83,10 +89,11 @@ extends JPanel {
     public void setStop(){
         def_sprite.stopFrame = 130;
     }
-  //  public void runDefault (boolean run){
-    //    run_default = run;
-      //   if(run_default) Tama_Actions.default_animation(this);
-    //}
+    
+    public void setStart(){
+        def_sprite.stopFrame = 0;
+    }
+ 
     
     public static void makeDarker(BufferedImage bufferedImage) {
         for (int i = 0; i < bufferedImage.getWidth(); ++i) {

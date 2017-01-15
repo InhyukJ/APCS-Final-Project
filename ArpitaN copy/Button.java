@@ -11,7 +11,8 @@ public abstract class Button extends JLabel{
     private boolean disabled;
     
     public Button(int x, int y, BufferedImage img){
-        super(new ImageIcon(img.getScaledInstance(54, 53, Image.SCALE_SMOOTH)));
+      super(new ImageIcon(img.getScaledInstance(54, 53, Image.SCALE_SMOOTH)));
+       // super(new ImageIcon ("blue_button.png"));
         color = new ImageIcon(img.getScaledInstance(54, 53, Image.SCALE_SMOOTH));
         
         setBounds(x, y, 54, 53);
