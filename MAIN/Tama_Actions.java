@@ -22,8 +22,18 @@ public class Tama_Actions{
         gui.default_choice.remove(gui.def_sprite);
         gui.repaint();
     }
+    
+    public static void poo(SetBackground gui){
+        System.out.println("yo");
+        Tama_Sprite pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 1, 200, ("poop"));
+        Tama_Sprite[] mySpriteArray = {pooping_sprite};
+        Point[] coordinate = {new Point((int)(Math.random() * 100), (int)(Math.random() * 100))};
+        Animator1 default_animator = new Animator1(mySpriteArray, 100, coordinate, gui.dark, gui);
+        default_animator.animate();
+    }
 
     public static void eating_animation(SetBackground gui, String food){
+        gui.poop += 1;
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite meal_sprite;
         //gui.def_sprite = 
@@ -49,11 +59,10 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(80, 100), new Point(10, 100)};
         Animator eating = new Animator(mySpriteArray1, mySpriteArray, 800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
-	//SetBackgound.poop++;
-	//if (SetBackground.poop == 5) {
-	    //add poop img to default
-	    //SetBackground.poop = 0;
-	//}
+        if(gui.poop > 0 && gui.poop % 5 == 0){
+            Tama_Actions.poo(gui);
+        }
+	
     }
     
      public static void showering_animation(SetBackground gui){
@@ -114,10 +123,10 @@ public class Tama_Actions{
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite pooping_sprite;
         //gui.def_sprite = 
-        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-pooping0.png"), 4, 200, "Mametchi-pooping"); 
+        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi_pooping0.png"), 4, 200, "Mametchi_pooping"); 
       
          
-        pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 4, 200, ("poop"));
+        pooping_sprite = new Tama_Sprite(new ImageIcon("flush0.png"), 4, 200, ("flush"));
        
         Tama_Sprite main_tamagotchi = gui.def_sprite;
         gui.setStart();
@@ -129,12 +138,60 @@ public class Tama_Actions{
         Animator pooping = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         pooping.animate();
     }
-    // Put more animation sequences here:
-    //first make the actual sprites you want to animate on a photo editor and name it like I did for some of the frames
-    //declare each sprite
-    //make a sprite array
-    //make an array of coordinates
-    //add it to gui
-    //make an Animator instance
-    //call animate() method
+    
+     public static void scolding_animation(SetBackground gui){
+        JLabel tama_setting = gui.default_choice;
+        Tama_Sprite scolding_sprite;
+        
+        Tama_Sprite sad_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-sad0.png"), 2, 200, "Mametchi-sad"); 
+            
+        scolding_sprite = new Tama_Sprite(new ImageIcon("scold0.png"), 2, 200, "scold");
+         
+        Tama_Sprite main_tamagotchi = gui.def_sprite;
+        gui.setStart();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Tama_Sprite[] mySpriteArray1 = {sad_tamagotchi, scolding_sprite};
+
+        Point[] coordinate = {new Point(50, 100)};
+        Point[] coordinates = {new Point(90, 110), new Point(30, 100)};
+        Animator scolding = new Animator(mySpriteArray1, mySpriteArray,  1500, coordinates, coordinate, gui.dark, gui);
+        scolding.animate();
+    }
+    
+    public static void game_animation(SetBackground gui, String rps){
+        JLabel tama_setting = gui.default_choice;
+        Tama_Sprite game_sprite;
+        Tama_Sprite result_sprite;
+        
+        Tama_Sprite game_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-def0.png"), 2, 200, "Mametchi-def"); 
+            
+        int i = ((int)(Math.random() * 100) % 3);
+        System.out.println((Math.random() * 100));
+        game_sprite = new Tama_Sprite(new ImageIcon("game" + i + "-0.png"), 2, 200, ("game" + i + "-"));
+        
+        if ((i == 1 && rps.equals("paper")) || (i == 2 && rps.equals("scissors")) || (i == 0 && rps.equals("rock"))){
+            result_sprite = new Tama_Sprite(new ImageIcon("win0.png"), 2, 200, "win");
+        }
+        
+        else if((i == 0 && rps.equals("scissors"))|| (i == 1 && rps.equals("rock")) || (i == 2 && rps.equals("paper"))){
+            result_sprite = new Tama_Sprite(new ImageIcon("tie0.png"), 2, 200, "tie");
+        }
+        
+        else{
+            result_sprite = new Tama_Sprite(new ImageIcon("lose0.png"), 2, 200, "lose");
+        }
+        
+        Tama_Sprite main_tamagotchi = gui.def_sprite;
+        gui.setStart();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Tama_Sprite[] mySpriteArray1 = {game_tamagotchi, game_sprite, result_sprite};
+
+        Point[] coordinate = {new Point(50, 100)};
+        Point[] coordinates = {new Point(90, 110), new Point(30, 50), new Point(20, 100)};
+        Animator game = new Animator(mySpriteArray1, mySpriteArray,  1000, coordinates, coordinate, gui.dark, gui);
+        game.animate();
+    }
+    
+    
+    
 }

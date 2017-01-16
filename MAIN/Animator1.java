@@ -46,8 +46,20 @@ public class Animator1 {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
             dark = gui.dark;
-   
+        
             for(int i = 0; i < Sprites.length; i++){
+                if(Sprites[i].action.equals("poop")){
+                    ImageIcon[] imgArray = Sprites[i].getImgArray();
+                    if(!(gui.isPooing)){
+                        animator.stop();
+                        gui.default_choice.remove(Sprites[i]);
+                        gui.repaint();
+                    }
+                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+                    
+                }
+                
+                else {
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
                     if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
@@ -92,6 +104,7 @@ public class Animator1 {
          
             }
             }
+            }
          }
         
         });
@@ -99,9 +112,6 @@ public class Animator1 {
          animator.start();
     }
     
-    public void stop(){
-        if(isDone) animator.setRepeats(false);
-    }
     
     public void darken(Tama_Sprite sprite, ImageIcon icon){
             ImageIcon darker;
