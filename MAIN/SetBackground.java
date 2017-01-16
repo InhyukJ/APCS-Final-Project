@@ -81,7 +81,7 @@ extends JPanel {
         
         button3 = new Button3(btn3, this);
         add(button3);
-        
+        poop = 0;
        
        //else {Tama_Actions.remove_animation(this);}
         

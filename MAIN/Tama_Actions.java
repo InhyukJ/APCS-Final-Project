@@ -49,11 +49,11 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(80, 100), new Point(10, 100)};
         Animator eating = new Animator(mySpriteArray1, mySpriteArray, 800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
-	poop++;
-	if (poop == 5) {
+	//SetBackgound.poop++;
+	//if (SetBackground.poop == 5) {
 	    //add poop img to default
-	    poop = 0;
-	}
+	    //SetBackground.poop = 0;
+	//}
     }
     
      public static void showering_animation(SetBackground gui){
@@ -110,12 +110,24 @@ public class Tama_Actions{
         default_animation(gui, true);
     }
 
-    public static void pooping_animation(SetBackground gui, boolean pooping) {
-	Tama_Sprite living_tamagotchi =   new Tama_Sprite(new ImageIcon("Mametchi-def0.png"), 2, 0, "Mametchi-def");
-        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-pooping.png"), 2, 0, "Mametchi-pooping");
-        if(pooping)gui.def_sprite = pooping_tamagotchi;
-        else if (!(pooping)) gui.def_sprite = living_tamagotchi;
-        default_animation(gui, true);
+    public static void pooping_animation(SetBackground gui){
+        JLabel tama_setting = gui.default_choice;
+        Tama_Sprite pooping_sprite;
+        //gui.def_sprite = 
+        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-pooping0.png"), 4, 200, "Mametchi-pooping"); 
+      
+         
+        pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 4, 200, ("poop"));
+       
+        Tama_Sprite main_tamagotchi = gui.def_sprite;
+        gui.setStart();
+        Tama_Sprite[] mySpriteArray = {main_tamagotchi};
+        Tama_Sprite[] mySpriteArray1 = {pooping_tamagotchi, pooping_sprite};
+
+        Point[] coordinate = {new Point(50, 100)};
+        Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
+        Animator pooping = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
+        pooping.animate();
     }
     // Put more animation sequences here:
     //first make the actual sprites you want to animate on a photo editor and name it like I did for some of the frames
