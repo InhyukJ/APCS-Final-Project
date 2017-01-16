@@ -250,7 +250,7 @@ public  class Button3 extends Button{
             }
 	}
 	
-	else if((btn1.btn1_choice % 8) == 8 && (!(panel.arrow_exists) || panel.main_screen_choice != 8)){ 
+	else if((btn1.btn1_choice % 8) == 0 && (!(panel.arrow_exists) || panel.main_screen_choice != 8)){ 
 	    System.out.println("POOPING");
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode8choice = new ImageIcon ("mode8_choice.png"); //ImageIcon "mode1_choice" & make 
@@ -265,13 +265,13 @@ public  class Button3 extends Button{
 	    //panel.default_choice.repaint();
 	}
         
-	else if((btn1.btn1_choice % 8) == 8 && ((panel.arrow_exists) && panel.main_screen_choice == 8)){ 
+	else if((btn1.btn1_choice % 8) == 0 && ((panel.arrow_exists) && panel.main_screen_choice == 8)){ 
 	    //The code checks that the user made a choice
 	    panel.main_screen.remove(panel.arrow);
             panel.repaint();
             panel.arrow_exists = false;
             panel.default_choice.remove(panel.main_screen);
-            panel.main_screen_choice = 0;
+            panel.main_screen_choice = 8;
             panel.repaint();
             if(!(panel.arrow_exists)){
                 //panel.default_choice.setIcon(new ImageIcon ("mode.png"));

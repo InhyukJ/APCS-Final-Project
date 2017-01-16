@@ -114,7 +114,7 @@ public class Tama_Actions{
         JLabel tama_setting = gui.default_choice;
         Tama_Sprite pooping_sprite;
         //gui.def_sprite = 
-        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi-pooping0.png"), 4, 200, "Mametchi-pooping"); 
+        Tama_Sprite pooping_tamagotchi = new Tama_Sprite(new ImageIcon("Mametchi_pooping0.png"), 4, 200, "Mametchi_pooping"); 
       
          
         pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 4, 200, ("poop"));
