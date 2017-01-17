@@ -85,7 +85,10 @@ public class Stats implements ActionListener {
 
     public void pooping() {
 	setDiscipline(getDiscipline() + 1.0);
+    setHygiene(getHygiene() + 0.5);
     }
+    
+
     
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);

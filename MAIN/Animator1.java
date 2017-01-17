@@ -10,7 +10,7 @@ import javax.swing.*;
 */
 
 public class Animator1 {
-    private Timer animator;
+    private Timer animator, poo_animator;
     private Tama_Sprite[] Sprites;
     private int delay;
     private Point[] coordinates;
@@ -37,13 +37,21 @@ public class Animator1 {
         dark = gui.dark;
         
         animator = new Timer(delay, null);
+        poo_animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
-           if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
-           if(Sprites[i].action.equals("digit")) gui.main_screen.add(Sprites[i]);
-            else gui.default_choice.add(Sprites[i]);
+           
+           if(Sprites[i].action.equals("digit")) {
+               gui.main_screen.add(Sprites[i]);
+               if(dark) darken(Sprites[0], Sprites[0].icon);
+           }
+            else {
+                gui.default_choice.add(Sprites[i]);
+                if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
+            }
             
         }
-        animator.addActionListener(new ActionListener() {
+        
+        poo_animator.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
             dark = gui.dark;
@@ -52,15 +60,25 @@ public class Animator1 {
                 
                 
                 if(Sprites[i].action.equals("poop")){
+                    
                     ImageIcon[] imgArray = Sprites[i].getImgArray();
                     if(!(gui.isPooing)){
-                        animator.stop();
+                        poo_animator.stop();
                         gui.default_choice.remove(Sprites[i]);
                         gui.repaint();
                     }
-                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
-                    
                 }
+            }
+        }
+        });
+        
+        animator.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {            
+            animator.setDelay(delay);
+            dark = gui.dark;
+        
+            for(int i = 0; i < Sprites.length; i++){
+                
                 
                 if(Sprites[i].action.equals("digit")){
                    
@@ -72,7 +90,7 @@ public class Animator1 {
                         gui.repaint();
                         
                     }
-                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+                  //  if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
                     
                 }
                 
@@ -126,7 +144,8 @@ public class Animator1 {
         
         });
         
-         animator.start();
+        if(Sprites[0].action.equals("poop")) poo_animator.start();
+        else animator.start();
     }
     
     

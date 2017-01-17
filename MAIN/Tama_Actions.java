@@ -27,7 +27,7 @@ public class Tama_Actions{
         System.out.println("yo");
         Tama_Sprite pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 1, 200, ("poop"));
         Tama_Sprite[] mySpriteArray = {pooping_sprite};
-        Point[] coordinate = {new Point((int)(Math.random() * 100), (int)(Math.random() * 100))};
+        Point[] coordinate = {new Point(((int)(Math.random() * 230) + 3), ((int)(Math.random() * 130) + 50))};
         Animator1 default_animator = new Animator1(mySpriteArray, 100, coordinate, gui.dark, gui);
         default_animator.animate();
     }
@@ -199,7 +199,7 @@ public class Tama_Actions{
 	gui.tama_stats.playing();
     }
     
-    public static void display_age(SetBackground panel){
+        public static void display_age(SetBackground panel){
           
          int x = 90;
          int x2 = 90;
@@ -211,7 +211,7 @@ public class Tama_Actions{
 	     panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
          String age = "" + panel.tama_stats.getAge();
          String weight = "" + panel.tama_stats.getWeight();
-        
+            weight = weight.substring(0, 3);
         for(int i = 0; i < age.length(); i++){
             Tama_Sprite digit_sprite;
             x += 25;
@@ -232,6 +232,7 @@ public class Tama_Actions{
             String digit_char = "";
             if(weight.charAt(i) == '.') digit_char = "point";
             else digit_char = "" + weight.charAt(i);
+            
             digit_sprite = new Tama_Sprite(new ImageIcon(digit_char + ".png"), 1, 200, "digit");
             Tama_Sprite[] mySpriteArray = {digit_sprite};
             Point[] coordinate = {new Point(x2, 75)};
@@ -239,6 +240,64 @@ public class Tama_Actions{
             default_animator.animate();
             digit_sprite.setBounds(x2, 75, 30, 30);
         }
+        
+        
+    }
+    
+     public static void display_meters(SetBackground panel){
+         
+        
+         ImageIcon age_lbs = new ImageIcon ("meters.png"); //ImageIcon "mode1_choice" & make 
+	     panel.main_screen.setIcon(new ImageIcon ("meters.png"));
+         panel.main_screen_choice = 70;
+	     panel.default_choice.add(panel.main_screen); //It adds the choice panels  
+	     if(panel.dark) Button3.darken(panel.main_screen, age_lbs); //darken if option is pressed
+	     panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
+         
+         String hunger = "" + (panel.tama_stats.getHunger() + 1);
+         String happy = "" + (panel.tama_stats.getHappy() + 1);
+         String hygiene = "" + (panel.tama_stats.getHygiene() + 1);
+         String discipline = "" + (panel.tama_stats.getDiscipline()+1);
+         
+         String[] stats = {hunger, happy, hygiene, discipline};
+         
+         for (int i = 0; i < stats.length; i++){
+             int x = 0;
+             int y = 0;
+             if (i == 0){
+                 x = 10;
+                 y = 35;
+             }
+             
+             if (i == 1){
+                 x = 10;
+                 y = 100;
+             }
+             
+             if (i == 2){
+                 x = 125;
+                 y = 35;
+             }
+             
+             if (i == 3){
+                 x = 125;
+                 y = 100;
+             }
+             
+             stats[i] = stats[i].substring(0, 3);
+             stats[i] = stats[i].substring(0, 1) + "-" + stats[i].substring(2,3) + "h";
+             System.out.println(stats[i]);
+             Tama_Sprite digit_sprite = new Tama_Sprite(new ImageIcon(stats[i] + ".png"), 1, 200, "digit");
+             Tama_Sprite[] mySpriteArray = {digit_sprite};
+             
+             Point[] coordinate = {new Point(x, y)};
+             Animator1 default_animator = new Animator1(mySpriteArray, 1000, coordinate, panel.dark, panel);
+             default_animator.animate();
+             digit_sprite.setBounds(x, y, 95, 27);
+         }
+         
+        
+        
         
         
     }
