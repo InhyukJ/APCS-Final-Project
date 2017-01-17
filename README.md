@@ -13,9 +13,14 @@ First Semester APCS Final Project - Tamagotchi Emulator
     The third button allows the user to confirm the choice the user has made.
   
 -List of unresolved bugs
+  Bug #1 - Accessing stats will mess with the stat fields
+  Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
+  Bug #3 - The Age & LBs option of the stats will display an oversized statistics
+  
+
 -Directions on how to compile and run your code 
   Requires java 8 or 8.1;
-  Compile the files with "javac *.java"*, then run the main class "java SetBackground".
+  Compile the files with "javac [insert asterisk].java", then run the main class "java SetBackground".
   
 -Directions on how to use your program
   Don't spam the buttons.
