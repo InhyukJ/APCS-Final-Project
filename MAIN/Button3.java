@@ -22,7 +22,7 @@ public  class Button3 extends Button{
         btn2 = bg.button2;
         
     }
-    public void darken(JLabel main_screen, ImageIcon screen_img){
+    public static void darken(JLabel main_screen, ImageIcon screen_img){
        ImageIcon darker;
        Image newimg = screen_img.getImage();
      BufferedImage buffered = new BufferedImage(newimg.getWidth(null), newimg.getHeight(null), BufferedImage.TYPE_INT_ARGB);
@@ -38,6 +38,13 @@ public  class Button3 extends Button{
 	JLabel setting = panel.main_screen;
 	
     // 1 ----------------------------------------------------------------------------------------------
+       
+        if(panel.main_screen_choice == 70) {
+            System.out.println("heyo");
+           // panel.main_screen_choice = 0;
+            panel.isDigit = false;
+        }
+        
         if((btn1.btn1_choice % 8) == 1 && (!(panel.arrow_exists) || panel.main_screen_choice != 1)){
             if(!(panel.sleeping)) btn3_choice = "mode1_choice.png";
 	       else btn3_choice = "sleeping_alert.png";
@@ -75,10 +82,8 @@ public  class Button3 extends Button{
                 
             }
             
-        
-        
-  // 2 --------------------------------------------------------------------------------------------------      
-        
+               
+  // 2 --------------------------------------------------------------------------------------------------              
         
 	else if((btn1.btn1_choice % 8) == 2 && (!(panel.arrow_exists) || panel.main_screen_choice != 2)){ 
 	    if(!(panel.sleeping)) btn3_choice = "mode2_choice.png";
@@ -92,7 +97,7 @@ public  class Button3 extends Button{
 	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
 	    panel.main_screen.add(panel.arrow);
 	    panel.arrow_exists = true;
-	    panel.arrow.setBounds(20, 20, 30, 30); //Keep this
+	    panel.arrow.setBounds(10, 20, 30, 30); //Keep this
 	   
 	}
         
@@ -113,11 +118,8 @@ public  class Button3 extends Button{
                     }
                 }
                
-                
             }
-            
-          
-        
+     
         
  // 3 ---------------------------------------------------------------------------------------------------       
         
@@ -317,7 +319,7 @@ public  class Button3 extends Button{
 // 8  -------------------------------------------------------------------------------------------------
 	
 	else if((btn1.btn1_choice % 8) == 0 && (!(panel.arrow_exists) || panel.main_screen_choice != 8)){ 
-	    System.out.println("POOPING");
+	   
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode8choice = new ImageIcon ("mode8_choice.png"); //ImageIcon "mode1_choice" & make 
 	    panel.main_screen.setIcon(new ImageIcon ("mode8_choice.png"));
@@ -327,7 +329,7 @@ public  class Button3 extends Button{
 	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
 	    panel.main_screen.add(panel.arrow);
 	    panel.arrow_exists = true;
-	    panel.arrow.setBounds(20, 20, 30, 30);
+	    panel.arrow.setBounds(10, 20, 30, 30);
         panel.isPooing = false;//Keep this
 	    
 	}
@@ -347,6 +349,45 @@ public  class Button3 extends Button{
                 System.out.println("done");
             }
         }
+        
+    // 7 ------------------------------------------------------------------------------------------------
+        
+        else if((btn1.btn1_choice % 7) == 0 && (!(panel.arrow_exists) || panel.main_screen_choice != 7)){ 
+	   
+	    Tama_Actions.remove_animation(panel); //removes default animation
+	    ImageIcon mode8choice = new ImageIcon ("mode7_choice.png"); //ImageIcon "mode1_choice" & make 
+	    panel.main_screen.setIcon(new ImageIcon ("mode7_choice.png"));
+	    panel.default_choice.add(panel.main_screen); //It adds the choice panels
+	    panel.main_screen_choice = 7; 
+	    if(panel.dark) darken(setting, mode8choice); //darken if option is pressed
+	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
+	    panel.main_screen.add(panel.arrow);
+	    panel.arrow_exists = true;
+	    panel.arrow.setBounds(20, 20, 30, 30);
+        
+	    
+	}
+        
+	else if((btn1.btn1_choice % 7) == 0 && ((panel.arrow_exists) && panel.main_screen_choice == 7)){ 
+	    
+            if(arrow.getY() == 20) panel.arrow_choice = "age";
+	       else if(arrow.getY() != 20) panel.arrow_choice = "meters";
+        
+	       System.out.println(panel.arrow_choice);
+	       panel.main_screen.remove(panel.arrow);
+            panel.repaint();
+            panel.arrow_exists = false;
+            panel.default_choice.remove(panel.main_screen);
+            panel.main_screen_choice = 0;
+            panel.repaint();
+            if(!(panel.arrow_exists)){
+                panel.isDigit = true;
+                if(panel.arrow_choice.equals("age")) Tama_Actions.display_age(panel);
+                
+            }
+        }
+        
+        
     }
     
 }            

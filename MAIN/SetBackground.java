@@ -34,7 +34,7 @@ extends JPanel {
     public int btn2_choice;
     public int btn3_choice;
     public int poop;
-    public boolean dark, sleeping, isPooing;
+    public boolean dark, sleeping, isPooing, isDigit;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
     
@@ -53,6 +53,7 @@ extends JPanel {
         btn2 = ImageIO.read(new File("seagreen_button.png"));
         btn3 = ImageIO.read(new File("purple_button.png"));
         isPooing = true;
+        isDigit = true;
         dark = false;
         sleeping = false;
         tamagotchi = new ImageIcon("mode.png");

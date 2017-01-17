@@ -39,7 +39,8 @@ public class Animator1 {
         animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
            if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
-            gui.default_choice.add(Sprites[i]);
+           if(Sprites[i].action.equals("digit")) gui.main_screen.add(Sprites[i]);
+            else gui.default_choice.add(Sprites[i]);
             
         }
         animator.addActionListener(new ActionListener() {
@@ -48,12 +49,28 @@ public class Animator1 {
             dark = gui.dark;
         
             for(int i = 0; i < Sprites.length; i++){
+                
+                
                 if(Sprites[i].action.equals("poop")){
                     ImageIcon[] imgArray = Sprites[i].getImgArray();
                     if(!(gui.isPooing)){
                         animator.stop();
                         gui.default_choice.remove(Sprites[i]);
                         gui.repaint();
+                    }
+                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+                    
+                }
+                
+                if(Sprites[i].action.equals("digit")){
+                   
+                    ImageIcon[] imgArray = Sprites[i].getImgArray();
+                    if(!(gui.isDigit)){
+                        animator.stop();
+                        
+                        gui.main_screen.remove(Sprites[i]);
+                        gui.repaint();
+                        
                     }
                     if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
                     

@@ -4,7 +4,7 @@ import java.awt.image.*;
 import javax.swing.*;
 
 public class Stats implements ActionListener {
-    private double age, weight, health, happy, discipline, hunger, hygiene;
+    public double age, weight, health, happy, discipline, hunger, hygiene;
     private Timer life;
     private boolean isAlive, isSick, isStarving, isHappy;
     private SetBackground bg;
@@ -23,7 +23,7 @@ public class Stats implements ActionListener {
 	isSick = false;
 	isStarving = false;
 	isHappy = true;
-	life = new Timer(1000, this);
+	life = new Timer(3000, this);
     }
 
     //Accessors
@@ -60,8 +60,7 @@ public class Stats implements ActionListener {
 	else isStarving = false;
 	if (getHappy() < 0) isHappy = false;
 	else isHappy = true;
-    
-    
+    setWeight(getWeight() + 0.10);
     
 	//if isAlive is false, then dies
     }
