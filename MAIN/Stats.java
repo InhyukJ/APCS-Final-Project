@@ -46,6 +46,41 @@ public class Stats implements ActionListener {
         life.start();
         
     }
+
+    public void eating() {
+	setWeight(getWeight()+0.1);
+	setHunger(getHunger()-0.5);
+	setHappy(getHappy()+0.5);
+    }
+
+    public void showering() {
+	setHygiene(getHygiene()+1.0);
+    }
+
+    public void playing() {
+	setHappy(getHappy()+1.0);
+	setHealth(getHealth()+0.5);
+	setDiscipline(getDiscipline()-0.5);
+    }
+
+    public void scolding() {
+	setDiscipline(getDiscipline()+1.5);
+	setHappy(getHappy()-0.5);
+    }
+
+    public void sleepig() {
+	setHappy(getHappy() + 0.5);
+	setHealth(getHealth()+2.5);
+    }
+
+    public void healing() {
+	setHealth(getHealth()+4.0);
+    }
+
+    public void pooping() {
+	setDiscipline(getDiscipline() + 1.0);
+    }
+    
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);
 	setHunger(getHunger() - 0.05);
@@ -61,12 +96,18 @@ public class Stats implements ActionListener {
 	if (getHappy() < 0) isHappy = false;
 	else isHappy = true;
 	setWeight(getWeight() + 0.10);
+	setHygiene(getHygiene() - 0.02);
 
-	if (getHealth() >= 5.0) setHealth(5.0);
-	if (getHappy() >= 5.0) setHappy(5.0);
-	if (getDiscipline() >= 5.0) setDiscipline(5.0);
-	if (getHunnger() >= 5.0) setHunger(5.0);
-	if (getHygiene() >= 5.0) setHygine(5.0);
+	if (getHealth() >= 4.0) setHealth(4.0);
+	if (getHealth() <= 0.0) setHealth(0.0);
+	if (getHappy() >= 4.0) setHappy(4.0);
+	if (getHappy() <= 0.0) setHappy(0.0);
+	if (getDiscipline() >= 4.0) setDiscipline(4.0);
+	if (getDiscipline() <= 0.0) setDiscipline(0.0);
+	if (getHunger() >= 4.0) setHunger(4.0);
+	if (getHunger() <= 0.0) setHunger(0.0);
+	if (getHygiene() >= 4.0) setHygiene(4.0);
+	if (getHygiene() <= 0.0) setHygiene(0.0);
     
 	//if isAlive is false, then dies
     }

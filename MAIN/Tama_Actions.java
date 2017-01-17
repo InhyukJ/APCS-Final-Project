@@ -59,6 +59,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(80, 100), new Point(10, 100)};
         Animator eating = new Animator(mySpriteArray1, mySpriteArray, 800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
+	gui.tama_stats.eating();
         if(gui.poop > 0 && gui.poop % 5 == 0){
             Tama_Actions.poo(gui);
         }
@@ -83,6 +84,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
         Animator shower = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         shower.animate();
+	gui.tama_stats.showering();
     }
     
      public static void healing_animation(SetBackground gui, String medicine){
@@ -109,6 +111,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(90, 110), new Point(30, 100)};
         Animator eating = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
+	gui.tama_stats.healing();
     }
 
     public static void sleeping_animation(SetBackground gui, boolean sleeping) {
@@ -117,6 +120,7 @@ public class Tama_Actions{
         if(sleeping)gui.def_sprite = sleeping_tamagotchi;
         else if (!(sleeping)) gui.def_sprite = living_tamagotchi;
         default_animation(gui, true);
+	gui.tama_stats.sleeping();
     }
 
     public static void pooping_animation(SetBackground gui){
@@ -137,6 +141,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(80, 110), new Point(100, 50)};
         Animator pooping = new Animator(mySpriteArray1, mySpriteArray,  800, coordinates, coordinate, gui.dark, gui);
         pooping.animate();
+	gui.tama_stats.pooping();
     }
     
      public static void scolding_animation(SetBackground gui){
@@ -156,6 +161,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(90, 110), new Point(30, 100)};
         Animator scolding = new Animator(mySpriteArray1, mySpriteArray,  1500, coordinates, coordinate, gui.dark, gui);
         scolding.animate();
+	gui.tama_stats.scolding();
     }
     
     public static void game_animation(SetBackground gui, String rps){
@@ -190,6 +196,7 @@ public class Tama_Actions{
         Point[] coordinates = {new Point(90, 110), new Point(30, 50), new Point(20, 100)};
         Animator game = new Animator(mySpriteArray1, mySpriteArray,  1000, coordinates, coordinate, gui.dark, gui);
         game.animate();
+	gui.tama_stats.playing();
     }
     
     public static void display_age(SetBackground panel){
