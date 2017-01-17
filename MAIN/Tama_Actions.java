@@ -27,7 +27,7 @@ public class Tama_Actions{
         System.out.println("yo");
         Tama_Sprite pooping_sprite = new Tama_Sprite(new ImageIcon("poop0.png"), 1, 200, ("poop"));
         Tama_Sprite[] mySpriteArray = {pooping_sprite};
-        Point[] coordinate = {new Point(((int)(Math.random() * 230) + 3), ((int)(Math.random() * 130) + 50))};
+        Point[] coordinate = {new Point(((int)(Math.random() * 180) + 3), ((int)(Math.random() * 130) + 50))};
         Animator1 default_animator = new Animator1(mySpriteArray, 100, coordinate, gui.dark, gui);
         default_animator.animate();
     }

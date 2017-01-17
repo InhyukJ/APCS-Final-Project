@@ -351,7 +351,7 @@ public  class Button3 extends Button{
             if(!(panel.arrow_exists)){
                 
                 Tama_Actions.pooping_animation(panel);
-                //panel.isPooing = true;
+                panel.isPooing = true;
                 System.out.println("done");
             }
         }
@@ -369,6 +369,7 @@ public  class Button3 extends Button{
 	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
 	    panel.main_screen.add(panel.arrow);
 	    panel.arrow_exists = true;
+        panel.poop = 0;
 	    panel.arrow.setBounds(20, 20, 30, 30);
         
 	    
