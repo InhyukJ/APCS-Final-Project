@@ -132,15 +132,15 @@ public  class Button3 extends Button{
 	    panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
 	    panel.main_screen.add(panel.arrow);
 	    panel.arrow_exists = true;
-	    panel.arrow.setBounds(35, 25, 30, 30); //Keep this
+	    panel.arrow.setBounds(15, 30, 30, 30); //Keep this
 	    btn2.game_mode = true;
 	}
         
     else if((btn1.btn1_choice % 8) == 3 && ((panel.arrow_exists) && panel.main_screen_choice == 10)){ 
             btn2.game_mode = false;
-	       if(arrow.getY() == 25) panel.arrow_choice = "rock";
-	        else if(arrow.getY() == 40) panel.arrow_choice = "paper";
-            else if(arrow.getY() == 60) panel.arrow_choice = "scissors";
+	       if(arrow.getY() == 30) panel.arrow_choice = "rock";
+	        else if(arrow.getY() == 70) panel.arrow_choice = "paper";
+            else if(arrow.getY() == 90) panel.arrow_choice = "scissors";
             panel.main_screen.remove(panel.arrow);
             panel.repaint();
             panel.arrow_exists = false;
@@ -154,6 +154,7 @@ public  class Button3 extends Button{
 	}
 	
     else if((btn1.btn1_choice % 8) == 3 && (!(panel.arrow_exists) || panel.main_screen_choice != 3 || panel.main_screen_choice == 0)){ 
+        System.out.println("playing");
 	    if(!(panel.sleeping)) btn3_choice = "mode3_choice.png";
         else btn3_choice = "sleeping_alert.png";
 	    Tama_Actions.remove_animation(panel); //removes default animation

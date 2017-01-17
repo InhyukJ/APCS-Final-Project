@@ -25,14 +25,14 @@ public  class Button2 extends Button{
     public void moveArrow(){
         
         if(game_mode){
-            if(arrow.getY() == 25){
-                arrow.setLocation(arrow.getX(), 40);
+            if(arrow.getY() == 30){
+                arrow.setLocation(arrow.getX(), 70);
             }
-            else if(arrow.getY() == 40){
-                arrow.setLocation(arrow.getX(), 60);
+            else if(arrow.getY() == 70){
+                arrow.setLocation(arrow.getX(), 90);
             }
-            else if(arrow.getY() == 60){
-                arrow.setLocation(arrow.getX(), 25);
+            else if(arrow.getY() == 90){
+                arrow.setLocation(arrow.getX(), 30);
             }
         }
         

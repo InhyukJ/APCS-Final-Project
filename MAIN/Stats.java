@@ -93,9 +93,14 @@ public class Stats implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);
 	setWeight(getWeight()+0.1);
-	if (getTicker() % 10 == 0){
-	    setHunger(getHunger() + 0.05);
-	    setHygiene(getHygiene()-0.02);
+        
+    if (getTicker() % 5 == 0){
+        setHealth (getHealth() - 0.4);
+    }
+	if (getTicker() % 3 == 0){
+	    setHunger(getHunger() + 0.5);
+	    setHygiene(getHygiene()-0.5);
+        
 	}
 	setTicker(getTicker() + 1);
 	
@@ -128,6 +133,7 @@ public class Stats implements ActionListener {
 	if (getHygiene() >= 4.0) setHygiene(4.0);
 	if (getHygiene() <= 0.0) setHygiene(0.0);
     
+    System.out.println("Hunger: "+ getHunger() + "\n Health: " + getHealth() + "\n Happy: " + getHappy() + "\n Discipline: " + getDiscipline() + "\n Hygiene: " + getHygiene() + "\n Sick?: " + isSick);
 	//if isAlive is false, then dies
     }
     //Sprites stats

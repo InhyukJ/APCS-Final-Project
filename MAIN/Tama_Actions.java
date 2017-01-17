@@ -60,7 +60,7 @@ public class Tama_Actions{
         Animator eating = new Animator(mySpriteArray1, mySpriteArray, 800, coordinates, coordinate, gui.dark, gui);
         eating.animate();
 	gui.tama_stats.eating();
-        if(gui.poop > 0 && gui.poop % 5 == 0){
+        if(gui.poop > 0 && gui.poop % 2 == 0){
             Tama_Actions.poo(gui);
         }
 	

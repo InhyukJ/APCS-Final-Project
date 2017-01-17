@@ -52,9 +52,9 @@ public class Animator {
                 gui.repaint();
 			animator.stop();
 			gui.default_choice.add(sprites2[0]);
-                if(dark) darken(sprites2[0], imgArray[sprites2[0].currentFrame]);
+            if(dark) darken(sprites2[0], imgArray[0]);
 			animator2.start();
-			System.out.println("\n\n\n");
+			
 		    }
 		    else if (deez == 2) {
 			animator2.stop();
