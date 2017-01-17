@@ -5,8 +5,10 @@ import javax.swing.*;
 
 public class Stats implements ActionListener {
     public double age, weight, health, happy, discipline, hunger, hygiene;
+    private int ticker;
     private Timer life;
     private boolean isAlive, isSick, isStarving, isHappy;
+    private ImageIcon dead;
     private SetBackground bg;
     
     public Stats(SetBackground gui) {
@@ -19,6 +21,7 @@ public class Stats implements ActionListener {
 	discipline = 2.0;
 	hunger = 5.0; //if negative for too long, dies
 	hygiene = 5.0; //between 10, -10, at certain range, slowly decreases health
+	ticker = 1;
 	isAlive = true;
 	isSick = false;
 	isStarving = false;
@@ -41,6 +44,8 @@ public class Stats implements ActionListener {
     public void setHunger(double h) {hunger = h;}
     public double getHygiene() {return hygiene;}
     public void setHygiene(double h) {hygiene = h;}
+    public int getTicker() {return ticker;}
+    public void setTicker(int t) {ticker = t;}
 
     public void start(){
         life.start();
@@ -61,6 +66,7 @@ public class Stats implements ActionListener {
 	setHappy(getHappy()+1.0);
 	setHealth(getHealth()+0.5);
 	setDiscipline(getDiscipline()-0.5);
+	setWeight(getWeight()-0.5);
     }
 
     public void scolding() {
@@ -68,7 +74,7 @@ public class Stats implements ActionListener {
 	setHappy(getHappy()-0.5);
     }
 
-    public void sleepig() {
+    public void sleeping() {
 	setHappy(getHappy() + 0.5);
 	setHealth(getHealth()+2.5);
     }
@@ -83,21 +89,31 @@ public class Stats implements ActionListener {
     
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);
-	setHunger(getHunger() - 0.05);
-	if (getHealth() <= 0) isAlive = false;
+	setWeight(getWeight()+0.1);
+	if (getTicker() % 10 == 0){
+	    setHunger(getHunger() + 0.05);
+	    setHygiene(getHygiene()-0.02);
+	}
+	setTicker(getTicker() + 1);
+	
+	if (getHealth() <= 0) {
+	    isAlive = false;
+	    life.stop();
+	    bg.remove(bg.default_choice);
+	    bg.repaint();
+	    bg.add(bg.dead_screen);
+	}
 	else isAlive = true;
-	if (getHygiene() <= 0) {
+	if (getHealth() <= 1.5) {
 	    isSick = true;
-	    setHealth(getHealth() - 0.5);
+	    setHygiene(getHygiene()-1.0);
 	}
 	else isSick = false;
 	if (getHunger() < 0) isStarving = true;
 	else isStarving = false;
 	if (getHappy() < 0) isHappy = false;
 	else isHappy = true;
-	setWeight(getWeight() + 0.10);
-	setHygiene(getHygiene() - 0.02);
-
+	
 	if (getHealth() >= 4.0) setHealth(4.0);
 	if (getHealth() <= 0.0) setHealth(0.0);
 	if (getHappy() >= 4.0) setHappy(4.0);

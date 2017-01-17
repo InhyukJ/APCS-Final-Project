@@ -40,6 +40,7 @@ extends JPanel {
     
     public int main_screen_choice = 0;
     public JLabel default_choice, arrow, main_screen;
+    public JLabel dead_screen;
     public Button1 button1;
     public Tama_Sprite def_sprite;
     public Button2 button2;
@@ -62,6 +63,9 @@ extends JPanel {
         def_sprite = new Tama_Sprite(new ImageIcon("Mametchi-def0.png"), 2, 0, "Mametchi-def");
         arrow = new JLabel(new ImageIcon("cursor.png"));
         main_screen = new JLabel(new ImageIcon("mode1_choice.png"));
+	ImageIcon dead = new ImageIcon("dead.png");
+	dead_screen = new JLabel(dead);
+	dead_screen.setBounds(124,97,246,240);
         setBackground(Color.white);
         background = new Dimension(500, 450);
         setPreferredSize(background);
