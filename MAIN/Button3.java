@@ -137,7 +137,7 @@ public  class Button3 extends Button{
 	}
         
     else if((btn1.btn1_choice % 8) == 3 && ((panel.arrow_exists) && panel.main_screen_choice == 10)){ 
-        
+            btn2.game_mode = false;
 	       if(arrow.getY() == 25) panel.arrow_choice = "rock";
 	        else if(arrow.getY() == 40) panel.arrow_choice = "paper";
             else if(arrow.getY() == 60) panel.arrow_choice = "scissors";
@@ -150,7 +150,7 @@ public  class Button3 extends Button{
             if(!(panel.arrow_exists)){
                 Tama_Actions.game_animation(panel, panel.arrow_choice);
             }
-            btn2.game_mode = false;
+            
 	}
 	
     else if((btn1.btn1_choice % 8) == 3 && (!(panel.arrow_exists) || panel.main_screen_choice != 3 || panel.main_screen_choice == 0)){ 
@@ -191,7 +191,11 @@ public  class Button3 extends Button{
 	                   panel.main_screen.setBounds(3, 50, 230, 130); //Keep this
                         
                     }
-            }    
+            }
+                 else{
+                        panel.setStart();
+                        Tama_Actions.default_animation(panel, true); 
+                    }      
         } 
         
     }
