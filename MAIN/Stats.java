@@ -12,13 +12,13 @@ public class Stats implements ActionListener {
     public Stats(SetBackground gui) {
     bg = gui;
 	age = 0.0;
-	weight = 5.0;
+	weight = 4.0;
 
-	health = 50.0;
-	happy = 0.0;
+	health = 4.0;
+	happy = 4.0;
 	discipline = 2.0;
-	hunger = 5.0; //if negative for too long, dies
-	hygiene = 5.0; //between 10, -10, at certain range, slowly decreases health
+	hunger = 4.0; //if negative for too long, dies
+	hygiene = 4.0; //between 10, -10, at certain range, slowly decreases health
 	isAlive = true;
 	isSick = false;
 	isStarving = false;
@@ -48,7 +48,7 @@ public class Stats implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);
-	setHunger(getHunger() - 0.05);
+	//setHunger(getHunger() - 0.5);
 	if (getHealth() <= 0) isAlive = false;
 	else isAlive = true;
 	if (getHygiene() < -7.5) {

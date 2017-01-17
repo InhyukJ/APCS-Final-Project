@@ -14,9 +14,12 @@ public class Tama_Sprite extends JLabel{
     private ImageIcon[] defaultArray;
     public int totalFrames, currentFrame, stopFrame;
     public String action;
+    public ImageIcon icon;
           
     public Tama_Sprite(ImageIcon img, int t, int stop, String action){
         super(img);
+        
+        icon = img;
         totalFrames = t;
         currentFrame = 0;
         stopFrame = stop;

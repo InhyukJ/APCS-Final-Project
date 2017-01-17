@@ -286,9 +286,9 @@ public  class Button3 extends Button{
 	   
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    
-	    panel.sleeping = !(panel.sleeping);
-        if(panel.sleeping) btn3_choice = "sleep.png";
-        else if (!(panel.sleeping)) btn3_choice = "wake.png";
+	   
+        if(!(panel.sleeping)) btn3_choice = "sleep.png";
+        else if (panel.sleeping) btn3_choice = "wake.png";
         sleep = new ImageIcon (btn3_choice); //ImageIcon "mode1_choice" & make
 	   
 	   panel.main_screen.setIcon(new ImageIcon (btn3_choice));
@@ -304,6 +304,7 @@ public  class Button3 extends Button{
 	}
         
 	else if((btn1.btn1_choice % 8) == 4 && ((panel.arrow_exists) && panel.main_screen_choice == 4)){ 
+         panel.sleeping = !(panel.sleeping);
 	    //The code checks that the user made a choice
             panel.main_screen.remove(panel.arrow);
             panel.repaint();
@@ -323,7 +324,7 @@ public  class Button3 extends Button{
 // 8  -------------------------------------------------------------------------------------------------
 	
 	else if((btn1.btn1_choice % 8) == 0 && (!(panel.arrow_exists) || panel.main_screen_choice != 8)){ 
-	   
+	   panel.isPooing = false;//Keep this
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode8choice = new ImageIcon ("mode8_choice.png"); //ImageIcon "mode1_choice" & make 
 	    panel.main_screen.setIcon(new ImageIcon ("mode8_choice.png"));
@@ -334,7 +335,7 @@ public  class Button3 extends Button{
 	    panel.main_screen.add(panel.arrow);
 	    panel.arrow_exists = true;
 	    panel.arrow.setBounds(10, 20, 30, 30);
-        panel.isPooing = false;//Keep this
+        
 	    
 	}
         
@@ -349,14 +350,14 @@ public  class Button3 extends Button{
             if(!(panel.arrow_exists)){
                 
                 Tama_Actions.pooping_animation(panel);
-                panel.isPooing = true;
+                //panel.isPooing = true;
                 System.out.println("done");
             }
         }
         
     // 7 ------------------------------------------------------------------------------------------------
         
-        else if((btn1.btn1_choice % 7) == 0 && (!(panel.arrow_exists) || panel.main_screen_choice != 7)){ 
+        else if((btn1.btn1_choice % 8) == 7 && (!(panel.arrow_exists) || panel.main_screen_choice != 7)){ 
 	   
 	    Tama_Actions.remove_animation(panel); //removes default animation
 	    ImageIcon mode8choice = new ImageIcon ("mode7_choice.png"); //ImageIcon "mode1_choice" & make 
@@ -372,7 +373,7 @@ public  class Button3 extends Button{
 	    
 	}
         
-	else if((btn1.btn1_choice % 7) == 0 && ((panel.arrow_exists) && panel.main_screen_choice == 7)){ 
+	else if((btn1.btn1_choice % 8) == 7 && ((panel.arrow_exists) && panel.main_screen_choice == 7)){ 
 	    
             if(arrow.getY() == 20) panel.arrow_choice = "age";
 	       else if(arrow.getY() != 20) panel.arrow_choice = "meters";
@@ -387,7 +388,7 @@ public  class Button3 extends Button{
             if(!(panel.arrow_exists)){
                 panel.isDigit = true;
                 if(panel.arrow_choice.equals("age")) Tama_Actions.display_age(panel);
-                
+                else if(panel.arrow_choice.equals("meters")) Tama_Actions.display_meters(panel);
             }
         }
         
