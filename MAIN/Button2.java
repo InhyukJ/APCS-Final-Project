@@ -11,7 +11,8 @@ import javax.swing.*;
 public  class Button2 extends Button{
     private SetBackground panel;
     private Button1 btn1;
-    private JLabel arrow; 
+    private JLabel arrow;
+    public boolean game_mode = false;
         
         
     public Button2(BufferedImage img, SetBackground bg){
@@ -22,16 +23,30 @@ public  class Button2 extends Button{
     }
     
     public void moveArrow(){
-        if(arrow.getY() == 20){
+        
+        if(game_mode){
+            if(arrow.getY() == 25){
+                arrow.setLocation(arrow.getX(), 40);
+            }
+            else if(arrow.getY() == 40){
+                arrow.setLocation(arrow.getX(), 60);
+            }
+            else if(arrow.getY() == 60){
+                arrow.setLocation(arrow.getX(), 25);
+            }
+        }
+        
+        else {
+            if(arrow.getY() == 20){
             arrow.setLocation(arrow.getX(), 80);
             
         }
         else{
             arrow.setLocation(arrow.getX(), 20);
-        }
+        }}
     }
     public void actionCommand(){
-        if(panel.arrow_exists && (btn1.btn1_choice != 4 && btn1.btn1_choice != 2)){
+        if(panel.arrow_exists && (btn1.btn1_choice != 4 && btn1.btn1_choice != 2 && !(panel.sleeping))){
         moveArrow();
         }
     }

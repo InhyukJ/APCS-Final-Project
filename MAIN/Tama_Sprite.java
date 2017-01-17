@@ -13,6 +13,7 @@ public class Tama_Sprite extends JLabel{
     
     private ImageIcon[] defaultArray;
     public int totalFrames, currentFrame, stopFrame;
+    public String action;
           
     public Tama_Sprite(ImageIcon img, int t, int stop, String action){
         super(img);
@@ -23,6 +24,7 @@ public class Tama_Sprite extends JLabel{
         for(int i = 0; i < defaultArray.length; i++){
             defaultArray[i] = new ImageIcon(action + i + ".png");
         }
+        this.action = action;
     }
     
     public ImageIcon[] getImgArray(){

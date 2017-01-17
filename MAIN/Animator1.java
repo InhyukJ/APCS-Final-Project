@@ -39,15 +39,44 @@ public class Animator1 {
         animator = new Timer(delay, null);
         for(int i = 0; i < Sprites.length; i++){
            if(dark) darken(Sprites[0], Sprites[0].getImgArray()[0]);
-            gui.default_choice.add(Sprites[i]);
+           if(Sprites[i].action.equals("digit")) gui.main_screen.add(Sprites[i]);
+            else gui.default_choice.add(Sprites[i]);
             
         }
         animator.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent evt) {            
             animator.setDelay(delay);
             dark = gui.dark;
-   
+        
             for(int i = 0; i < Sprites.length; i++){
+                
+                
+                if(Sprites[i].action.equals("poop")){
+                    ImageIcon[] imgArray = Sprites[i].getImgArray();
+                    if(!(gui.isPooing)){
+                        animator.stop();
+                        gui.default_choice.remove(Sprites[i]);
+                        gui.repaint();
+                    }
+                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+                    
+                }
+                
+                if(Sprites[i].action.equals("digit")){
+                   
+                    ImageIcon[] imgArray = Sprites[i].getImgArray();
+                    if(!(gui.isDigit)){
+                        animator.stop();
+                        
+                        gui.main_screen.remove(Sprites[i]);
+                        gui.repaint();
+                        
+                    }
+                    if(dark) darken(Sprites[i], imgArray[Sprites[i].currentFrame]);
+                    
+                }
+                
+                else {
                 ImageIcon[] imgArray = Sprites[i].getImgArray();
                 if(Sprites[i].getCurrentFrame() >= imgArray.length){ 
                     if(Sprites[i].getStop() == 0) Sprites[i].currentFrame = 0;
@@ -92,6 +121,7 @@ public class Animator1 {
          
             }
             }
+            }
          }
         
         });
@@ -99,9 +129,6 @@ public class Animator1 {
          animator.start();
     }
     
-    public void stop(){
-        if(isDone) animator.setRepeats(false);
-    }
     
     public void darken(Tama_Sprite sprite, ImageIcon icon){
             ImageIcon darker;

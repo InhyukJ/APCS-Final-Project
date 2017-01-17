@@ -29,34 +29,31 @@ extends JPanel {
     private BufferedImage btn3;
     private ImageIcon tamagotchi;
     private Dimension background;
-    private URL backgroundimg = new URL("https://d2xngy2dw7hums.cloudfront.net/media/photos/products/2015/01/01/pre_order_tamagotchi_4u_faceplate_1420044532_81fed84a.jpg");
+    
     public int btn1_choice;
     public int btn2_choice;
     public int btn3_choice;
     public int poop;
-    public boolean dark, sleeping;
+    public boolean dark, sleeping, isPooing, isDigit;
     public String arrow_choice = "";
     public boolean arrow_exists = false;
-   // private boolean run_default = true;
-   // private boolean is_default = true;
+    
     public int main_screen_choice = 0;
     public JLabel default_choice, arrow, main_screen;
     public Button1 button1;
     public Tama_Sprite def_sprite;
     public Button2 button2;
     public Button3 button3;
+    public Stats tama_stats;
 
     public SetBackground() throws MalformedURLException, IOException {
-        /*backgroundImage = ImageIO.read(this.backgroundimg);
-        btn1 = ImageIO.read(new URL("http://www.clker.com/cliparts/a/9/3/e/1194984754884631372button-blue_benji_park_01.svg.med.png"));
-        btn2 = ImageIO.read(new URL("http://www.clker.com/cliparts/4/8/d/d/11949847561597560220button-seagreen_benji_pa_01.svg.med.png"));
-        btn3 = ImageIO.read(new URL("http://www.clker.com/cliparts/1/5/6/8/11949847551060334388button-purple_benji_park_01.svg.med.png"));*/
         
         backgroundImage = ImageIO.read(new File("tamagotchi_faceplate.jpg"));
         btn1 = ImageIO.read(new File("blue_button.png"));
         btn2 = ImageIO.read(new File("seagreen_button.png"));
         btn3 = ImageIO.read(new File("purple_button.png"));
-        
+        isPooing = true;
+        isDigit = true;
         dark = false;
         sleeping = false;
         tamagotchi = new ImageIcon("mode.png");
@@ -83,6 +80,8 @@ extends JPanel {
         add(button3);
         poop = 0;
        
+        tama_stats = new Stats(this);
+        tama_stats.start();
        //else {Tama_Actions.remove_animation(this);}
         
     }

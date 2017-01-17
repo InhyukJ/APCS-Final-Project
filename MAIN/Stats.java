@@ -4,11 +4,13 @@ import java.awt.image.*;
 import javax.swing.*;
 
 public class Stats implements ActionListener {
-    private double age, weight, health, happy, discipline, hunger, hygiene;
+    public double age, weight, health, happy, discipline, hunger, hygiene;
     private Timer life;
     private boolean isAlive, isSick, isStarving, isHappy;
-
-    public Stats() {
+    private SetBackground bg;
+    
+    public Stats(SetBackground gui) {
+    bg = gui;
 	age = 0.0;
 	weight = 5.0;
 
@@ -21,7 +23,7 @@ public class Stats implements ActionListener {
 	isSick = false;
 	isStarving = false;
 	isHappy = true;
-	life = new Timer(1000, this);
+	life = new Timer(3000, this);
     }
 
     //Accessors
@@ -40,6 +42,10 @@ public class Stats implements ActionListener {
     public double getHygiene() {return hygiene;}
     public void setHygiene(double h) {hygiene = h;}
 
+    public void start(){
+        life.start();
+        
+    }
     public void actionPerformed(ActionEvent e) {
 	setAge(getAge() + 0.25);
 	setHunger(getHunger() - 0.05);
@@ -54,7 +60,8 @@ public class Stats implements ActionListener {
 	else isStarving = false;
 	if (getHappy() < 0) isHappy = false;
 	else isHappy = true;
-
+    setWeight(getWeight() + 0.10);
+    
 	//if isAlive is false, then dies
     }
     //Sprites stats
