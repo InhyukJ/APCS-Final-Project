@@ -13,11 +13,18 @@ First Semester APCS Final Project - Tamagotchi Emulator
     The third button allows the user to confirm the choice the user has made.
   
 -List of unresolved bugs
+<<<<<<< HEAD
   Bug #1 - Accessing stats will mess with the stat fields
   Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
   Bug #3 - The Age & LBs option of the stats will display an oversized statistics
   Bug #4 - Spamming the buttons makes all the animations run awry
   Bug #5 - Its hygiene never changes :|
+=======
+ - Bug #1 - Accessing some of these modes can mess with the stat fields
+ - Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
+ - Bug #3 - The Age & LBs option of the stats will display an oversized statistics
+ - Bug #4 - Spamming the buttons makes all the animations run awry
+>>>>>>> 3fdae653499de5f040f19c05069e01a7c4bcd124
   
 
 -Directions on how to compile and run your code 
@@ -25,10 +32,11 @@ First Semester APCS Final Project - Tamagotchi Emulator
   Compile the files with "javac [insert asterisk].java", then run the main class "java SetBackground".
   
 -Directions on how to use your program
-  Toggle through different actions with button 1 (blue one)
-  In order to get out of Stats, toggle through with button 1 (blue one) to another action and perform that instead.
-  Move the arrow with button 2 (seagreen).
-  In order to select anything, like a blackened icon or meals vs snacks, use button 3 (purple one).
-  In mini-game mode, click button 3 to get to next "screen" and play the game.
-  Don't spam the buttons!!!
-  WAIT FOR ANIMATION SEQUENCES TO FINISH BEFORE MOVING ON WITH THE BUTTONS PLEASE. 
+  - Toggle through different actions with button 1 (blue one)
+  - In order to get out of Stats, toggle through with button 1 (blue one) to another action and perform that instead.
+  - Move the arrow with button 2 (seagreen).
+  - In order to select anything, like a blackened icon or meals vs snacks, use button 3 (purple one).
+  - In mini-game mode, click button 3 to get to next "screen" and play the game.
+  - Don't spam the buttons!!!
+  - WAIT FOR ANIMATION SEQUENCES TO FINISH BEFORE MOVING ON WITH THE BUTTONS PLEASE. 
+  - When the death screen pops up, close the window and run the class again.
