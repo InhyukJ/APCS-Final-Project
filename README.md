@@ -17,6 +17,7 @@ First Semester APCS Final Project - Tamagotchi Emulator
   Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
   Bug #3 - The Age & LBs option of the stats will display an oversized statistics
   Bug #4 - Spamming the buttons makes all the animations run awry
+  Bug #5 - Its hygiene never changes :|
   
 
 -Directions on how to compile and run your code 
