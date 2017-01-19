@@ -13,18 +13,12 @@ First Semester APCS Final Project - Tamagotchi Emulator
     The third button allows the user to confirm the choice the user has made.
   
 -List of unresolved bugs
-<<<<<<< HEAD
-  Bug #1 - Accessing stats will mess with the stat fields
-  Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
-  Bug #3 - The Age & LBs option of the stats will display an oversized statistics
-  Bug #4 - Spamming the buttons makes all the animations run awry
-  Bug #5 - Its hygiene never changes :|
-=======
- - Bug #1 - Accessing some of these modes can mess with the stat fields
- - Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
+ - Bug #1 - Accessing stats will mess with the stat fields
+-  Bug #2 - The arrow for the Game options is not optimized (as in, it doesn't look right visually)
  - Bug #3 - The Age & LBs option of the stats will display an oversized statistics
- - Bug #4 - Spamming the buttons makes all the animations run awry
->>>>>>> 3fdae653499de5f040f19c05069e01a7c4bcd124
+-  Bug #4 - Spamming the buttons makes all the animations run awry
+ - Bug #5 - Its hygiene never changes and happiness does not consistently decline automatically :|
+
   
 
 -Directions on how to compile and run your code 
